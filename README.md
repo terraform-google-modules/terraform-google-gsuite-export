@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# terraform-google-gsuite-export
-=======
-# Terraform Log Export Module
-=======
 # Terraform GSuite Export Module
-<<<<<<< HEAD
->>>>>>> 6479df4... Add 'api' variable + reformat examples + fix shell script
-This module allows you to export data from the GSuite Admin SDK APIs.
-=======
-This module allows you to export data from the **GSuite Admin APIs**.
->>>>>>> d73495d... Update examples + Clarify readme + Remove log export from module (has to be created separately)
 
 The module will create a compute engine VM instance and set up a cronjob to export
 GSuite data to **Stackdriver Logging** on a schedule.
@@ -102,4 +90,3 @@ The integration tests for this module are built with bats, basically the test ch
 You can use the following command to run the integration test in the folder */test/integration/gcloud-test*
 
   `. launch.sh`
->>>>>>> 8ab2cce... GSuite Exporter first commit
