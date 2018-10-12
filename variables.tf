@@ -41,6 +41,11 @@ variable service_account {
 variable project_id {
   description = "The project to export GSuite data to."
 }
+   
+variable export_filter {
+  description = "The export filter to use in a log export (if any)"
+  default     = ""
+}
 
 #---------------------------#
 # VM exporter configuration #
