@@ -38,14 +38,7 @@
 #             gcloud tests             #
 # #################################### #
 
-@test "Test if VMs are running" {
-  export INSTANCE_NAME="$(terraform output vm_name_bq)"
-  run gcloud compute instances list --format='table(name, status)' --filter=name:$INSTANCE_NAME
-  [ "$status" -eq 0 ]
-  [[ "${lines[1]}" = "destination: $SINK_DESTINATION" ]]
-  [[ "${lines[2]}" = "name: $SINK_NAME" ]]
-  [[ "${lines[3]}" = "writerIdentity: $SINK_WRITER" ]]
-}
+# TODO - Plan to move out of BATS
 
 # #################################### #
 #      Terraform destroy test          #
