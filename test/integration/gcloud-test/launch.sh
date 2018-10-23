@@ -24,10 +24,6 @@ export FOLDER_ID="XXXXXX"
 export BILLING_ID="XXXXXX-XXXXXX-XXXXXX"
 export CREDENTIALS_PATH="XXXXXX"
 export CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE=$CREDENTIALS_PATH
-export SINK_NAME="integration-sink"
-export STORAGE_BUCKET="XXXXXX-integration-sink"
-export BIGQUERY_DATASET="integration_sink"
-export PUBSUB_TOPIC="integration-sink"
 
 # Cleans the workdir
 function clean_workdir() {
@@ -50,76 +46,15 @@ provider "google" {
   credentials = "\${file(local.credentials_file_path)}"
 }
 
-module "gsuite-export-bq" {
-  source          = "../../"
-  service_account = "$SERVICE_ACCOUNT"
-  api             = "reports_v1"
-  applications    = "login drive token"
-  admin_user      = "$ADMIN_USER"
-  machine_name    = "test-exporter"
-  machine_project = "$PROJECT_ID"
-  export_name     = "test-export-bq"
-  export_project  = "$PROJECT_ID"
-  bigquery        = {
-    name = "$BIGQUERY_DATASET"
-    project = "$PROJECT_ID"
-  }
-}
-
-
-module "gsuite-export-storage" {
-  source          = "../../"
-  service_account = "$SERVICE_ACCOUNT"
-  api             = "reports_v1"
-  applications    = "login drive token"
-  admin_user      = "$ADMIN_USER"
-  machine_name    = "test-exporter"
-  machine_project = "$PROJECT_ID"
-  export_name     = "test-export-storage"
-  export_project  = "$PROJECT_ID"
-  storage         = {
-    name    = "$STORAGE_BUCKET"
-    project = "$PROJECT_ID"
-  }
-}
-
 module "gsuite-export" {
-  source          = "../../"
-  service_account = "$SERVICE_ACCOUNT"
-  api             = "reports_v1"
-  applications    = "login drive token"
-  admin_user      = "$ADMIN_USER"
-  machine_name    = "test-exporter"
-  machine_project = "$PROJECT_ID"
-  export_name     = "test-export-pubsub"
-  export_project  = "$PROJECT_ID"
-  pubsub        = {
-    name    = "$PUBSUB_TOPIC"
-    project = "$PROJECT_ID"
-  }
+  source            = "../../"
+  service_account   = "$SERVICE_ACCOUNT"
+  api               = "reports_v1"
+  applications      = "login drive token"
+  gsuite_admin_user = "$ADMIN_USER"
+  project_id        = "$PROJECT_ID"
 }
 EOF
-}
-
-# Creates the outputs.tf file
-function create_outputs_file() {
-  echo "Creating outputs.tf file"
-  touch outputs.tf
-  cat <<'EOF' > outputs.tf
-
-  output "project_id" {
-    value = "${module.pubsub_sink.sink["resource_name"]}"
-  }
-
-  output "folder_id" {
-    value = "${module.storage_sink.sink["resource_name"]}"
-  }
-
-  output "org_id" {
-    value = "${module.bigquery_sink.sink["resource_name"]}"
-  }
-EOF
-}
 
 # Preparing environment
 clean_workdir
