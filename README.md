@@ -16,6 +16,7 @@ module "gsuite-export" {
   project_id          = "my-project"
   api                 = "reports_v1"
   applications        = "login drive"
+  frequency           = "*/10 * * * *"
 }
 ```
 
