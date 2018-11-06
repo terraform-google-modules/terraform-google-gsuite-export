@@ -25,6 +25,11 @@ module "gsuite-export" {
 - [Terraform](https://www.terraform.io/downloads.html) 0.10.x
 - [terraform-provider-google](https://github.com/terraform-providers/terraform-provider-google) plugin v1.8.0
 
+### APIs
+For the GSuite Exporter to work, the following APIs must be enabled in the project:
+- Identity and Access Management API: `iam.googleapis.com`
+- Admin SDK API: `admin.googleapis.com`
+
 ### Service account
 We need two Terraform service accounts for this module:
 * **Terraform service account** (that will create the GSuite Export VM)
