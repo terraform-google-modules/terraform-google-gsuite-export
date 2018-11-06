@@ -1,7 +1,7 @@
 # Terraform GSuite Export Module
 
 The module will create a compute engine VM instance and set up a cronjob to export
-GSuite data to **Stackdriver Logging** on a schedule.
+GSuite Admin SDK data to **Stackdriver Logging** on a schedule.
 
 Additional information on which APIs are supported is documented in the gsuite-exporter repository.
 
