@@ -32,8 +32,8 @@ We need two Terraform service accounts for this module:
 
 The **Terraform service account** used to run this module must have the following IAM Roles:
 - `Compute Instance Admin` on the project (to create the VM)
-- `Project IAM Admin` to grant permissions to the VM service account
-- `Service Account User` on the project
+- `Service Account User` on the project (to associate the VM service account with the VM)
+- `Project IAM Admin` on the project (to grant permissions to the VM service account)
 
 The **VM service account** passed to the module must have:
 - GSuite domain-wide delegation enabled
