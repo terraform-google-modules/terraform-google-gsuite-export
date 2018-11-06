@@ -37,7 +37,6 @@ The **Terraform service account** used to run this module must have the followin
 
 The **VM service account** passed to the module must have:
 - GSuite domain-wide delegation enabled
-- The `Token Creator` IAM role on the project
 - The following scopes in the [API client access page](https://admin.google.com/AdminHome?chromeless=1#OGX:ManageOauthClients)
   - https://www.googleapis.com/auth/admin.reports.audit.readonly (to read from the Reports API)
   - https://www.googleapis.com/auth/iam (to generate a super-admin token)
