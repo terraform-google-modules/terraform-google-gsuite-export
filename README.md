@@ -20,6 +20,8 @@ module "gsuite-export" {
 }
 ```
 
+Warning: Setting the `frequency` to a time inferior to 4 mn might cause the loss of records.
+
 ## Requirements
 ### Terraform plugins
 - [Terraform](https://www.terraform.io/downloads.html) 0.10.x
