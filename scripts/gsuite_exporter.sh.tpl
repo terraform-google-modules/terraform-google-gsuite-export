@@ -9,7 +9,7 @@ apt install -y git python-pip
 
 # Install gsuite-exporter
 # TODO: Replace this with `pip install gsuite-exporter` when released
-echo "-e git+https://github.com/morgante/professional-services.git@gsuite-report-sync#egg=gsuite-exporter&subdirectory=tools/gsuite-exporter" > requirements.txt
+echo "-e git+https://github.com/GoogleCloudPlatform/professional-services.git#egg=gsuite-exporter&subdirectory=tools/gsuite-exporter" > requirements.txt
 pip install -r requirements.txt
 
 # Set up user
