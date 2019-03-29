@@ -11,7 +11,9 @@ You can go to the [examples](./examples) folder to see all the use cases, howeve
 
 ```hcl
 module "gsuite-export" {
-  source              = "../../"
+  source  = "terraform-google-modules/gsuite-export/google"
+  version = "~> 0.1.0"
+
   admin_user          = "superadmin@domain.com
   service_account     = "svc@domain.com"
   project_id          = "my-project"
