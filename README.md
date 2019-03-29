@@ -9,7 +9,7 @@ Additional information on which APIs are supported is documented in the
 ## Usage
 You can go to the [examples](./examples) folder to see all the use cases, however the usage of the module could be like this in your own `main.tf` file:
 
-```
+```hcl
 module "gsuite-export" {
   source              = "../../"
   admin_user          = "superadmin@domain.com
