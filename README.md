@@ -3,7 +3,8 @@
 The module will create a compute engine VM instance and set up a cronjob to export
 GSuite Admin SDK data to **Stackdriver Logging** on a schedule.
 
-Additional information on which APIs are supported is documented in the **gsuite-exporter** repository.
+Additional information on which APIs are supported is documented in the
+[gsuite-exporter repository][gsuite-exporter-site].
 
 ## Usage
 You can go to the [examples](./examples) folder to see all the use cases, however the usage of the module could be like this in your own `main.tf` file:
@@ -98,3 +99,5 @@ The integration tests for this module are built with bats, basically the test ch
 You can use the following command to run the integration test in the folder */test/integration/gcloud-test*
 
   `. launch.sh`
+
+[gsuite-exporter-site]: https://github.com/GoogleCloudPlatform/professional-services/tree/master/tools/gsuite-exporter
