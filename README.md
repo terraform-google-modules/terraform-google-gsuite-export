@@ -44,6 +44,7 @@ The **Terraform service account** used to run this module must have the followin
 - `Compute Instance Admin` on the project (to create the VM)
 - `Service Account User` on the project (to associate the VM service account with the VM)
 - `Project IAM Admin` on the project (to grant permissions to the VM service account)
+- `Service Usage Admin` on the project (to allow service account to enable other APIs and services, e.g., Pub/Sub)
 
 The **VM service account** passed to the module must have:
 - GSuite domain-wide delegation enabled
