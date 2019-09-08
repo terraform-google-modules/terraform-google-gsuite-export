@@ -34,7 +34,7 @@ data "external" "compute_filter" {
 data "template_file" "gsuite_exporter" {
   template = "${file("${path.module}/scripts/gsuite_exporter.sh.tpl")}"
 
-  vars {
+  vars={
     admin_user   = "${var.admin_user}"
     api          = "${var.api}"
     applications = "${var.applications}"
@@ -61,7 +61,7 @@ resource "google_compute_instance" "gsuite_exporter_vm" {
 
   network_interface {
     network       = "${var.machine_network}"
-    access_config = {}
+    access_config {}
   }
 
   metadata_startup_script = "${data.template_file.gsuite_exporter.rendered}"
