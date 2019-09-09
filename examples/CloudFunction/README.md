@@ -72,12 +72,14 @@ The usage of the module within your own main.tf file is as follows:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| region | The location of resources | string | `us-central1` | no |
+| gsuite_admin_user | The email of a gsuite admin user | string | - | yes |
 | project_id |The ID of the project where the pub/sub topic will be installed  | string | - | yes |
+| region | The location of resources | string | `us-central1` | no |
+| gsuite_exporter_service-account| The email address of the service account which has been added to the gsuite admin consle and has [GSuite domain-wide delegation](https://developers.google.com/admin-sdk/reports/v1/guides/delegation)  | string | - | yes |
 | name | Prefix for resource naming | string | `demo-cf-export` | no |
 | cs_schedule| The Schedule which to trigger the function | string | `*/10 * * * *` | no |
-| gsuite_exporter_service-account| The email address of the service account which has been added to the gsuite admin consle and has [GSuite domain-wide delegation](https://developers.google.com/admin-sdk/reports/v1/guides/delegation)  | string | - | yes |
-| gsuite_admin_user | The email of a gsuite admin user | string | - | yes |
+| enabled_services  | The services required to be enabled | list | `see vars file` | no |
+| enable_app_engine  | Boolean Variable to create App Engine App.  This is required for cloudscheduler.  If an App Engine App already exists in your project, set to false.  Otherwise set to true | Bool | `true` | no |
 
 
 ## Outputs
