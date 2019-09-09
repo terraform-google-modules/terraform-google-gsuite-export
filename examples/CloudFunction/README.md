@@ -44,7 +44,7 @@ The **CloudFunction service account** passed to this module must have :
 - A service account with:
   * [GSuite domain-wide delegation](https://developers.google.com/admin-sdk/reports/v1/guides/delegation) enabled.
   * The IAM roles
-    - `roles/iam.tokenCreator` set on the organization.
+    - `roles/iam.serviceAccountTokenCreator` set on the organization.
     - `roles/logging.viewer` set on the project to view logs
     - `roles/logging.configWriter` set on the project to write logs to stackdriver
 
