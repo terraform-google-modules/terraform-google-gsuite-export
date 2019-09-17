@@ -15,9 +15,9 @@
  */
 
 output "filter" {
-  value = "${local.export_filter}"
+  value = local.export_filter
 }
 
 output "instance_id" {
-  value = "${google_compute_instance.gsuite_exporter_vm.instance_id}"
+  value = google_compute_instance.gsuite_exporter_vm.instance_id
 }

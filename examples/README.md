@@ -4,6 +4,7 @@ GSuite export examples
 Examples to create GSuite exports on Google Cloud Platform using the `gsuite-export` module.
 
 Variables
+
 ---------
 The base Terraform variables for all the examples are defined in the `example.auto.tfvars` in the [examples](./examples)
 directory.
@@ -12,7 +13,8 @@ The example-specific variables are defined under the corresponding example direc
 Replace the variables by your own before running the examples.
 
 Examples
---------
+
+---------
 Examples are structured as follows:
 
 * ***stackdriver/*** creates a GSuite export to Stackdriver Logging with no log export
@@ -28,7 +30,7 @@ Those extra permissions are documented in the [terraform-google-log-export READM
 
 Each example can be run individually by going to each folder and running:
 
-```
+```bash
 terraform init
 terraform apply
 ```

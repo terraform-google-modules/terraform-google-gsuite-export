@@ -7,6 +7,7 @@ Additional information on which APIs are supported is documented in the
 [gsuite-exporter repository][gsuite-exporter-site].
 
 ## Usage
+
 You can go to the [examples](./examples) folder to see all the use cases, however the usage of the module could be like this in your own `main.tf` file:
 
 ```hcl
@@ -26,37 +27,47 @@ module "gsuite-export" {
 Warning: Setting the `frequency` to a time inferior to 4 mn might cause the loss of records.
 
 ## Requirements
+
 ### Terraform plugins
-- [Terraform](https://www.terraform.io/downloads.html) 0.10.x
+
+- [Terraform](https://www.terraform.io/downloads.html) 0.12.x
 - [terraform-provider-google](https://github.com/terraform-providers/terraform-provider-google) plugin v1.8.0
 
 ### APIs
+
 For the GSuite Exporter to work, the following APIs must be enabled in the project:
+
+- Logging API: `logging.googleapis.com`
 - Identity and Access Management API: `iam.googleapis.com`
 - Admin SDK API: `admin.googleapis.com`
 
 ### Service account
+
 We need two Terraform service accounts for this module:
-* **Terraform service account** (that will create the GSuite Export VM)
-* **VM service account** (that will be used on the VM to pull logs from GSuite and write them to Stackdriver Logging)
+
+- **Terraform service account** (that will create the GSuite Export VM)
+- **VM service account** (that will be used on the VM to pull logs from GSuite and write them to Stackdriver Logging)
 
 The **Terraform service account** used to run this module must have the following IAM Roles:
+
 - `Compute Instance Admin` on the project (to create the VM)
 - `Service Account User` on the project (to associate the VM service account with the VM)
 - `Project IAM Admin` on the project (to grant permissions to the VM service account)
 
 The **VM service account** passed to the module must have:
+
 - GSuite domain-wide delegation enabled
 - The following scopes in the [API client access page](https://admin.google.com/AdminHome?chromeless=1#OGX:ManageOauthClients)
-  - https://www.googleapis.com/auth/admin.reports.audit.readonly (to read from the Reports API)
-  - https://www.googleapis.com/auth/iam (to generate a super-admin token)
-
+  - <https://www.googleapis.com/auth/admin.reports.audit.readonly> (to read from the Reports API)
+  - <https://www.googleapis.com/auth/iam> (to generate a super-admin token)
 
 ## Install
 
 ### Terraform
+
 Be sure you have the correct Terraform version (0.10.x), you can choose the binary here:
-- https://releases.hashicorp.com/terraform/
+
+- <https://releases.hashicorp.com/terraform/>
 
 Then perform the following commands:
 
@@ -66,12 +77,15 @@ Then perform the following commands:
 - `terraform destroy` to destroy the built infrastructure
 
 #### Variables
+
 Please refer the `variables.tf` file for the required and optional variables.
 
 #### Outputs
+
 Please refer the `outputs.tf` file for the outputs that you can get with the `terraform output` command
 
 ## File structure
+
 The project has the following folders and files:
 
 - /: root folder
@@ -85,12 +99,16 @@ The project has the following folders and files:
 
 ## Testing
 
-### Requirements
+### Testing Requirements
+
 - [bats](https://github.com/sstephenson/bats) 0.4.0
 
 ### Integration test
-##### Terraform integration tests
+
+#### Terraform integration tests
+
 The integration tests for this module are built with bats, basically the test checks the following:
+
 - Perform `terraform init` command
 - Perform `terraform get` command
 - Perform `terraform plan` command and check that it'll create *n* resources, modify 0 resources and delete 0 resources
