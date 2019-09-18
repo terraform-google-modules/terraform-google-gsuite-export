@@ -10,6 +10,11 @@ Extending the adopted spec, each change should have a link to its corresponding 
 
 ## [Unreleased]
 
+### Added
+- Support for Terraform 0.12
+- Kitchen-terraform tests
+- Private IP for GSuite exporter VM
+
 ## [0.1.0] - 2019-03-29
 
 ### Added

@@ -23,11 +23,11 @@ module "gsuite-export" {
 }
 ```
 
-Warning: Setting the `frequency` to a time inferior to 4 mn might cause the loss of records.
+***Warning: Setting the `frequency` to a time inferior to 4 mn might cause the loss of records due to a limitation in the GSuite Admin API.***
 
 ## Requirements
 ### Terraform plugins
-- [Terraform](https://www.terraform.io/downloads.html) 0.10.x
+- [Terraform](https://www.terraform.io/downloads.html) 0.12.x
 - [terraform-provider-google](https://github.com/terraform-providers/terraform-provider-google) plugin v1.8.0
 
 ### APIs
@@ -55,7 +55,7 @@ The **VM service account** passed to the module must have:
 ## Install
 
 ### Terraform
-Be sure you have the correct Terraform version (0.10.x), you can choose the binary here:
+Be sure you have the correct Terraform version (0.12.x), you can choose the binary here:
 - https://releases.hashicorp.com/terraform/
 
 Then perform the following commands:
@@ -82,24 +82,5 @@ The project has the following folders and files:
 - /variables.tf: all the variables for the module
 - /output.tf: the outputs of the module
 - /readme.MD: this file
-
-## Testing
-
-### Requirements
-- [bats](https://github.com/sstephenson/bats) 0.4.0
-
-### Integration test
-##### Terraform integration tests
-The integration tests for this module are built with bats, basically the test checks the following:
-- Perform `terraform init` command
-- Perform `terraform get` command
-- Perform `terraform plan` command and check that it'll create *n* resources, modify 0 resources and delete 0 resources
-- Perform `terraform apply -auto-approve` command and check that it has created the *n* resources, modified 0 resources and deleted 0 resources
-- Perform several `gcloud` commands and check the infrastructure is in the desired state
-- Perform `terraform destroy -force` command and check that it has destroyed the *n* resources
-
-You can use the following command to run the integration test in the folder */test/integration/gcloud-test*
-
-  `. launch.sh`
 
 [gsuite-exporter-site]: https://github.com/GoogleCloudPlatform/professional-services/tree/master/tools/gsuite-exporter
