@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-output "gsuite-export" {
-  value = module.gsuite-export
-}
-
-output "gsuite-log-export" {
-  value = module.gsuite-log-export
-}
-
-output "bigquery" {
-  value = module.bigquery
+module "example" {
+  source           = "../../../examples/bigquery"
+  credentials_path = var.credentials_path
+  admin_user       = var.admin_user
+  api              = var.api
+  applications     = var.applications
+  service_account  = var.service_account
+  project_id       = var.project_id
+  machine_name     = var.machine_name
+  export_name      = var.export_name
+  bigquery         = var.bigquery
 }

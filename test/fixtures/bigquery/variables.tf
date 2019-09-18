@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-output "gsuite-export" {
-  value = module.gsuite-export
-}
+variable "credentials_path" {}
+variable "admin_user" {}
+variable "api" {}
+variable "applications" {}
+variable "service_account" {}
+variable "project_id" {}
+variable "machine_name" {}
+variable "export_name" {}
 
-output "gsuite-log-export" {
-  value = module.gsuite-log-export
-}
-
-output "bigquery" {
-  value = module.bigquery
+variable bigquery {
+  type = map
 }

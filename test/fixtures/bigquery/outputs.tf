@@ -14,14 +14,17 @@
  * limitations under the License.
  */
 
-output "gsuite-export" {
-  value = module.gsuite-export
+output "slo_pipeline" {
+  description = "SLO pipeline outputs"
+  value       = module.example.slo_pipeline
 }
 
-output "gsuite-log-export" {
-  value = module.gsuite-log-export
+output "slo" {
+  description = "SLO outputs"
+  value       = module.example.slo
 }
 
-output "bigquery" {
-  value = module.bigquery
+output "project_id" {
+  description = "The ID of the project in which resources are provisioned."
+  value       = var.project_id
 }

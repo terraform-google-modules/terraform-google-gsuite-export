@@ -1,0 +1,36 @@
+name: bigquery
+
+depends:
+  - name: inspec-gcp
+    git: https://github.com/inspec/inspec-gcp.git
+    tag: v0.10.0
+
+attributes:
+
+  - name: credentials_path
+    required: true
+    type: string
+
+  - name: admin_user
+    required: true
+    type: string
+
+  - name: api
+    required: true
+    type: string
+
+  - name: applications
+    required: true
+    type: string
+
+  - name: service_account
+    required: true
+    type: string
+
+  - name: project_id
+    required: true
+    type: string
+
+  - name: machine_name
+    required: true
+    type: string

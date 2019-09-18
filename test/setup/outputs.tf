@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
-output "gsuite-export" {
-  value = module.gsuite-export
+output "project_id" {
+  value = module.project.project_id
 }
 
-output "gsuite-log-export" {
-  value = module.gsuite-log-export
-}
-
-output "bigquery" {
-  value = module.bigquery
+output "sa_key" {
+  value     = google_service_account_key.int_test.private_key
+  sensitive = true
 }

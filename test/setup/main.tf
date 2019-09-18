@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,21 @@
  * limitations under the License.
  */
 
-output "gsuite-export" {
-  value = module.gsuite-export
-}
+module "project" {
+  source  = "terraform-google-modules/project-factory/google"
+  version = "~> 3.0"
 
-output "gsuite-log-export" {
-  value = module.gsuite-log-export
-}
+  name              = "ci-gsuite-export"
+  random_project_id = "true"
+  org_id            = var.org_id
+  folder_id         = var.folder_id
+  billing_account   = var.billing_account
 
-output "bigquery" {
-  value = module.bigquery
+  activate_apis = [
+    "logging.googleapis.com",
+    "monitoring.googleapis.com",
+    "bigquery-json.googleapis.com",
+    "pubsub.googleapis.com",
+    "storage.googleapis.com"
+  ]
 }

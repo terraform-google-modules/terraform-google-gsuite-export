@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-output "gsuite-export" {
-  value = module.gsuite-export
+terraform {
+  required_version = ">= 0.12"
 }
 
-output "gsuite-log-export" {
-  value = module.gsuite-log-export
+provider "google" {
+  version = "~> 2.13.0"
 }
 
-output "bigquery" {
-  value = module.bigquery
+provider "google-beta" {
+  version = "~> 2.13.0"
 }

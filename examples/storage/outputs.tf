@@ -22,6 +22,6 @@ output "gsuite-log-export" {
   value = module.gsuite-log-export
 }
 
-output "bigquery" {
-  value = module.bigquery
+output "storage" {
+  value = module.storage
 }
