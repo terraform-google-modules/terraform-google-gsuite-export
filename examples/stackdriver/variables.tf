@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-variable credentials_path {}
-variable admin_user {}
-variable api {}
-variable applications {}
-variable service_account {}
-variable project_id {}
-variable machine_name {}
+variable "credentials_path" {}
+variable "admin_user" {}
+variable "api" {}
+variable "applications" {}
+variable "service_account" {}
+variable "project_id" {}
+variable "machine_name" {}

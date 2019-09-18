@@ -15,9 +15,21 @@
  */
 
 output "filter" {
-  value = "${local.export_filter}"
+  value = local.export_filter
 }
 
-output "instance_id" {
-  value = "${google_compute_instance.gsuite_exporter_vm.instance_id}"
+output "instance_name" {
+  value = var.machine_name
+}
+
+output "instance_zone" {
+  value = var.machine_zone
+}
+
+output "instance_project" {
+  value = local.machine_project
+}
+
+output "instance_ssh_command" {
+  value = "gcloud beta compute ssh ${var.machine_name} --zone=${var.machine_zone} --project=${local.machine_project}"
 }

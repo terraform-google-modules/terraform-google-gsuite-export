@@ -8,9 +8,7 @@ bash install-logging-agent.sh
 apt install -y git python-pip
 
 # Install gsuite-exporter
-# TODO: Replace this with `pip install gsuite-exporter` when released
-echo "-e git+https://github.com/GoogleCloudPlatform/professional-services.git#egg=gsuite-exporter&subdirectory=tools/gsuite-exporter" > requirements.txt
-pip install -r requirements.txt
+pip install gsuite-exporter=="${gsuite_exporter_version}"
 
 # Set up user
 # adduser --disabled-password --gecos "" gsuite-exporter
