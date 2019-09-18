@@ -15,21 +15,26 @@
  */
 
 output "filter" {
-  value = local.export_filter
+  value       = local.export_filter
+  description = "Log export filter for logs exported by GSuite-exporter"
 }
 
 output "instance_name" {
-  value = var.machine_name
+  value       = var.machine_name
+  description = "GSuite Exporter instance name"
 }
 
 output "instance_zone" {
-  value = var.machine_zone
+  value       = var.machine_zone
+  description = "GSuite Exporter instance zone"
 }
 
 output "instance_project" {
-  value = local.machine_project
+  value       = local.machine_project
+  description = "GSuite Exporter instance project"
 }
 
 output "instance_ssh_command" {
-  value = "gcloud beta compute ssh ${var.machine_name} --zone=${var.machine_zone} --project=${local.machine_project}"
+  value       = "gcloud beta compute ssh ${var.machine_name} --zone=${var.machine_zone} --project=${local.machine_project}"
+  description = "GSuite Exporter instance SSH command"
 }

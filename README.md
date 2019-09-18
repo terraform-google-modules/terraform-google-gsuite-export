@@ -25,6 +25,38 @@ module "gsuite-export" {
 
 ***Warning: Setting the `frequency` to a time inferior to 4 mn might cause the loss of records due to a limitation in the GSuite Admin API.***
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| admin\_user | The GSuite Admin user to impersonate | string | n/a | yes |
+| api | The Admin SDK API to sync data from | string | n/a | yes |
+| applications | The Admin SDK applications to sync data from (space-separated) | string | n/a | yes |
+| export\_filter | The export filter to use in a log export (if any) | string | `""` | no |
+| frequency | The crontab entry that controls the sync frequency | string | `"*/10 * * * *"` | no |
+| gsuite\_exporter\_version | Version of the gsuite-exporter PyPi package | string | `"0.0.2"` | no |
+| machine\_image | The instance image | string | `"debian-cloud/debian-9"` | no |
+| machine\_name | The instance name | string | `"gsuite-exporter"` | no |
+| machine\_network | The instance network | string | `"default"` | no |
+| machine\_project | The instance project id. Defaults to `project_id` | string | `""` | no |
+| machine\_type | The instance type | string | `"f1-micro"` | no |
+| machine\_zone | The instance zone | string | `"us-central1-a"` | no |
+| project\_id | The project to export GSuite data to. | string | n/a | yes |
+| service\_account | The service account for exporting GSuite data. Needs domain-wide delegation and correct access scopes. | string | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| filter | Log export filter for logs exported by GSuite-exporter |
+| instance\_name | GSuite Exporter instance name |
+| instance\_project | GSuite Exporter instance project |
+| instance\_ssh\_command | GSuite Exporter instance SSH command |
+| instance\_zone | GSuite Exporter instance zone |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Requirements
 ### Terraform plugins
 - [Terraform](https://www.terraform.io/downloads.html) 0.12.x
