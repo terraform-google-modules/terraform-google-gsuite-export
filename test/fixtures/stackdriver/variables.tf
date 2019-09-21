@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-output "outputs" {
-  description = "Module outputs"
-  value       = module.example
-}
+variable "credentials_path" {}
+variable "admin_user" {}
+variable "api" {}
+variable "applications" {}
+variable "service_account" {}
+variable "project_id" {}
+variable "machine_name" {}

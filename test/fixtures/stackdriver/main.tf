@@ -13,8 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-output "outputs" {
-  description = "Module outputs"
-  value       = module.example
+module "example" {
+  source           = "../../../examples/stackdriver"
+  credentials_path = var.credentials_path
+  admin_user       = var.admin_user
+  api              = var.api
+  applications     = var.applications
+  service_account  = var.service_account
+  project_id       = var.project_id
+  machine_name     = var.machine_name
 }

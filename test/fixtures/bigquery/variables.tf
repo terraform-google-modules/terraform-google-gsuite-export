@@ -22,7 +22,6 @@ variable "service_account" {}
 variable "project_id" {}
 variable "machine_name" {}
 variable "export_name" {}
-
-variable bigquery {
+variable "bigquery" {
   type = map
 }

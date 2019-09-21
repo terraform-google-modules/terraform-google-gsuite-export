@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-output "outputs" {
-  description = "Module outputs"
-  value       = module.example
+terraform {
+  required_version = ">= 0.12"
 }
