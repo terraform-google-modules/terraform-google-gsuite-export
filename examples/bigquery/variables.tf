@@ -14,15 +14,44 @@
  * limitations under the License.
  */
 
-variable "credentials_path" {}
-variable "admin_user" {}
-variable "api" {}
-variable "applications" {}
-variable "service_account" {}
-variable "project_id" {}
-variable "machine_name" {}
-variable "export_name" {}
+variable "credentials_path" {
+  description = "Credentials path"
+}
+
+variable "admin_user" {
+  description = "The GSuite Admin user to impersonate"
+}
+
+variable "api" {
+  description = "The Admin SDK API to sync data from"
+  default     = "reports_v1"
+}
+
+variable "applications" {
+  description = "The Admin SDK applications to sync data from (space-separated)"
+  default     = "admin login drive mobile token"
+}
+
+variable "service_account" {
+  description = "The service account for exporting GSuite data. Needs domain-wide delegation and correct access scopes."
+}
+
+variable "project_id" {
+  description = "The project to export GSuite data to."
+}
+
+variable "machine_name" {
+  description = "Compute Engine instance name"
+}
+
+variable "export_name" {
+  description = "BigQuery log export name"
+}
 
 variable bigquery {
-  type = map
+  description = "BigQuery log export configuration"
+  type = map(object({
+    project = string
+    name    = string
+  }))
 }

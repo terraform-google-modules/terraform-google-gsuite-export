@@ -1,0 +1,18 @@
+credentials_path = ""
+admin_user = ""
+service_account = ""
+project_id = ""
+machine_name = ""
+export_name = ""
+pubsub = {
+  project = ""
+  name = ""
+}
+bigquery = {
+  project = ""
+  name = ""
+}
+storage = {
+  project = ""
+  name = ""
+}

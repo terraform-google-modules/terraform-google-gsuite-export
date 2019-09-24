@@ -23,10 +23,12 @@ variable "admin_user" {
 
 variable "api" {
   description = "The Admin SDK API to sync data from"
+  default     = "reports_v1"
 }
 
 variable "applications" {
   description = "The Admin SDK applications to sync data from (space-separated)"
+  default     = "admin login drive mobile token"
 }
 
 variable "frequency" {
@@ -49,7 +51,7 @@ variable "export_filter" {
 
 variable "gsuite_exporter_version" {
   description = "Version of the gsuite-exporter PyPi package"
-  default     = "0.0.2" # latest version
+  default     = "0.0.3" # latest version
 }
 
 #---------------------------#

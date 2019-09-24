@@ -59,3 +59,31 @@ variable "project_id" {
 variable "machine_name" {
   description = "Compute Engine instance name"
 }
+
+variable "export_name" {
+  description = "PubSub log export name"
+}
+
+variable "bigquery" {
+  description = "BigQuery log export configuration"
+  type = map(object({
+    project = string
+    name    = string
+  }))
+}
+
+variable "pubsub" {
+  description = "PubSub log export configuration"
+  type = map(object({
+    project = string
+    name    = string
+  }))
+}
+
+variable "storage" {
+  description = "Storage log export configuration"
+  type = map(object({
+    project = string
+    name    = string
+  }))
+}
