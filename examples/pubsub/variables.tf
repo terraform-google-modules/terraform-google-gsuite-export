@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 
-variable "credentials_path" {
-  description = "Credentials path"
-}
-
 variable "admin_user" {
   description = "The GSuite Admin user to impersonate"
 }
@@ -48,8 +44,8 @@ variable "export_name" {
 
 variable "pubsub" {
   description = "PubSub log export configuration"
-  type = map(object({
+  type = object({
     project = string
     name    = string
-  }))
+  })
 }

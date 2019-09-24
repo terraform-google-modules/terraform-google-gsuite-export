@@ -31,11 +31,11 @@ module "gsuite-export" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | admin\_user | The GSuite Admin user to impersonate | string | n/a | yes |
-| api | The Admin SDK API to sync data from | string | n/a | yes |
-| applications | The Admin SDK applications to sync data from (space-separated) | string | n/a | yes |
+| api | The Admin SDK API to sync data from | string | `"reports_v1"` | no |
+| applications | The Admin SDK applications to sync data from (space-separated) | string | `"admin login drive mobile token"` | no |
 | export\_filter | The export filter to use in a log export (if any) | string | `""` | no |
 | frequency | The crontab entry that controls the sync frequency | string | `"*/10 * * * *"` | no |
-| gsuite\_exporter\_version | Version of the gsuite-exporter PyPi package | string | `"0.0.2"` | no |
+| gsuite\_exporter\_version | Version of the gsuite-exporter PyPi package | string | `"0.0.3"` | no |
 | machine\_image | The instance image | string | `"debian-cloud/debian-9"` | no |
 | machine\_name | The instance name | string | `"gsuite-exporter"` | no |
 | machine\_network | The instance network | string | `"default"` | no |

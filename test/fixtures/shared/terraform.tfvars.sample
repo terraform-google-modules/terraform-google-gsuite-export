@@ -1,18 +1,22 @@
-credentials_path = ""
-admin_user = ""
-service_account = ""
-project_id = ""
-machine_name = ""
-export_name = ""
+admin_user               = ""
+service_account          = ""
+project_id               = ""
+machine_name_bigquery    = ""
+machine_name_storage     = ""
+machine_name_pubsub      = ""
+machine_name_stackdriver = ""
+export_name_bigquery     = ""
+export_name_storage      = ""
+export_name_pubsub       = ""
 pubsub = {
   project = ""
-  name = ""
+  name    = ""
 }
 bigquery = {
   project = ""
-  name = ""
+  name    = ""
 }
 storage = {
   project = ""
-  name = ""
+  name    = ""
 }

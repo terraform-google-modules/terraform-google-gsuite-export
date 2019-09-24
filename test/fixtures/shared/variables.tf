@@ -30,10 +30,6 @@
   * limitations under the License.
   */
 
-variable "credentials_path" {
-  description = "Credentials path"
-}
-
 variable "admin_user" {
   description = "The GSuite Admin user to impersonate"
 }
@@ -56,34 +52,54 @@ variable "project_id" {
   description = "The project to export GSuite data to."
 }
 
-variable "machine_name" {
-  description = "Compute Engine instance name"
+variable "machine_name_pubsub" {
+  description = "Compute Engine instance name (PubSub)"
 }
 
-variable "export_name" {
+variable "machine_name_bigquery" {
+  description = "Compute Engine instance name (BigQuery)"
+}
+
+variable "machine_name_storage" {
+  description = "Compute Engine instance name (Storage)"
+}
+
+variable "machine_name_stackdriver" {
+  description = "Compute Engine instance name (Stackdriver)"
+}
+
+variable "export_name_pubsub" {
   description = "PubSub log export name"
+}
+
+variable "export_name_bigquery" {
+  description = "BigQuery log export name"
+}
+
+variable "export_name_storage" {
+  description = "Storage log export name"
 }
 
 variable "bigquery" {
   description = "BigQuery log export configuration"
-  type = map(object({
+  type = object({
     project = string
     name    = string
-  }))
+  })
 }
 
 variable "pubsub" {
   description = "PubSub log export configuration"
-  type = map(object({
+  type = object({
     project = string
     name    = string
-  }))
+  })
 }
 
 variable "storage" {
   description = "Storage log export configuration"
-  type = map(object({
+  type = object({
     project = string
     name    = string
-  }))
+  })
 }

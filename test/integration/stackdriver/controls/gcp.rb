@@ -12,10 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-control "gcp" do
-  title "GCP Resources"
+instance_name = attribute['gsuite-export']['instance_name']
+instance_zone = attribute['gsuite-export']['instance_name']
+instance_project = attribute['gsuite-export']['instance_name']
+instance_ssh_command = attribute['gsuite-export']['instance_name']
+pubsub_topic_name = attribute['pubsub']['resource_name']
 
-  describe google_compute_instance(name: attribute("machine_name")) do
+control "gsuite-exporter" do
+  title "GSuite exporter VM"
+
+  describe google_compute_instance(
+    project: instance_project,
+    zone: instance_zone,
+    name: instance_name
+  ) do
     it { should exist }
   end
 end

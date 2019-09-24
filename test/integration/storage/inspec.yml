@@ -7,10 +7,6 @@ depends:
 
 attributes:
 
-  - name: credentials_path
-    required: true
-    type: string
-
   - name: admin_user
     required: true
     type: string

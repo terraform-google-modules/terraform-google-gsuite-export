@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-module "example" {
-  source          = "../../../examples/storage"
-  admin_user      = var.admin_user
-  api             = var.api
-  applications    = var.applications
-  service_account = var.service_account
-  project_id      = var.project_id
-  machine_name    = var.machine_name_storage
-  export_name     = var.export_name_storage
-  storage         = var.storage
+output "bigquery" {
+  value = module.example.bigquery
+}
+
+output "gsuite-log-export" {
+  value = module.example.gsuite-log-export
 }

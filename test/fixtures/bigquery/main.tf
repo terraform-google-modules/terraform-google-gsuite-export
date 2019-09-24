@@ -15,14 +15,13 @@
  */
 
 module "example" {
-  source           = "../../../examples/bigquery"
-  credentials_path = var.credentials_path
-  admin_user       = var.admin_user
-  api              = var.api
-  applications     = var.applications
-  service_account  = var.service_account
-  project_id       = var.project_id
-  machine_name     = var.machine_name
-  export_name      = var.export_name
-  bigquery         = var.bigquery
+  source          = "../../../examples/bigquery"
+  admin_user      = var.admin_user
+  api             = var.api
+  applications    = var.applications
+  service_account = var.service_account
+  project_id      = var.project_id
+  machine_name    = var.machine_name_bigquery
+  export_name     = var.export_name_bigquery
+  bigquery        = var.bigquery
 }

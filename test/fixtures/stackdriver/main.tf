@@ -15,12 +15,11 @@
  */
 
 module "example" {
-  source           = "../../../examples/stackdriver"
-  credentials_path = var.credentials_path
-  admin_user       = var.admin_user
-  api              = var.api
-  applications     = var.applications
-  service_account  = var.service_account
-  project_id       = var.project_id
-  machine_name     = var.machine_name
+  source          = "../../../examples/stackdriver"
+  admin_user      = var.admin_user
+  api             = var.api
+  applications    = var.applications
+  service_account = var.service_account
+  project_id      = var.project_id
+  machine_name    = var.machine_name_stackdriver
 }

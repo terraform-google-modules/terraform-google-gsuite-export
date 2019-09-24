@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 
-variable "credentials_path" {
-  description = "Credentials path"
-}
-
 variable "admin_user" {
   description = "The GSuite Admin user to impersonate"
 }
@@ -48,10 +44,10 @@ variable "export_name" {
   description = "BigQuery log export name"
 }
 
-variable bigquery {
+variable "bigquery" {
   description = "BigQuery log export configuration"
-  type = map(object({
+  type = object({
     project = string
     name    = string
-  }))
+  })
 }

@@ -12,12 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-control "gcloud" do
-  title "gcloud"
+project_id = attribute("gsuite-export")["instance_project"]
 
-  describe command("gcloud --project=#{attribute("project_id")} services list --enabled") do
+control "stackdriver" do
+  title "GSuite export - bare (without log export)"
+
+  describe command("gcloud --project=#{project_id} services list --enabled") do
     its(:exit_status) { should eq 0 }
     its(:stderr) { should eq "" }
-    its(:stdout) { should match "monitoring.googleapis.com" }
+    its(:stdout) { should include "monitoring.googleapis.com" }
+    its(:stdout) { should include "compute.googleapis.com" }
+    its(:stdout) { should include "admin.googleapis.com" }
+    its(:stdout) { should include "iam.googleapis.com" }
   end
 end

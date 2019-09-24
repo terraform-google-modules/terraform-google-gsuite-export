@@ -30,10 +30,6 @@
   * limitations under the License.
   */
 
-variable "credentials_path" {
-  description = "Credentials path"
-}
-
 variable "admin_user" {
   description = "The GSuite Admin user to impersonate"
 }

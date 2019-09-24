@@ -15,7 +15,7 @@
  */
 
 provider "google" {
-  credentials = file(var.credentials_path)
+  version = "~> 2.15.0"
 }
 
 module "gsuite-export" {

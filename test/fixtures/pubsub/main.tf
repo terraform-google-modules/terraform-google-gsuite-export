@@ -15,14 +15,13 @@
  */
 
 module "example" {
-  source           = "../../../examples/pubsub"
-  credentials_path = var.credentials_path
-  admin_user       = var.admin_user
-  api              = var.api
-  applications     = var.applications
-  service_account  = var.service_account
-  project_id       = var.project_id
-  machine_name     = var.machine_name
-  export_name      = var.export_name
-  pubsub           = var.pubsub
+  source          = "../../../examples/pubsub"
+  admin_user      = var.admin_user
+  api             = var.api
+  applications    = var.applications
+  service_account = var.service_account
+  project_id      = var.project_id
+  machine_name    = var.machine_name_pubsub
+  export_name     = var.export_name_pubsub
+  pubsub          = var.pubsub
 }

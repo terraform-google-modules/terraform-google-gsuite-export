@@ -12,10 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-control "gcp" do
-  title "GCP Resources"
+instance_name = attribute['gsuite-export']['instance_name']
+instance_zone = attribute['gsuite-export']['instance_name']
+instance_project = attribute['gsuite-export']['instance_name']
+instance_ssh_command = attribute['gsuite-export']['instance_name']
+bigquery_dataset_name = attribute['bigquery']['resource_name']
 
-  describe google_bigquery_dataset(name: attribute("bigquery")["name"]) do
+control "gsuite-exporter" do
+  title "GSuite exporter VM + BigQuery log export"
+
+  describe google_compute_instance(
+    project: instance_project,
+    zone: instance_zone,
+    name: instance_name
+  ) do
+    it { should exist }
+  end
+
+  describe google_bigquery_dataset(name: bigquery_dataset_name) do
     it { should exist }
   end
 end
