@@ -13,6 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 set -e
+
+# shellcheck disable=SC2038
 find . -name terraform.tfstate | xargs rm
+
+# shellcheck disable=SC2038
 find . -name terraform.tfstate.backup | xargs rm
+
+# shellcheck disable=SC2038
 find . -name .terraform | xargs rm -r

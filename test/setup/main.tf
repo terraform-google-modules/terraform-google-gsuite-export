@@ -29,6 +29,6 @@ module "project" {
     "monitoring.googleapis.com",
     "bigquery-json.googleapis.com",
     "pubsub.googleapis.com",
-    "storage.googleapis.com"
+    "storage-component.googleapis.com"
   ]
 }
