@@ -66,8 +66,8 @@ resource "google_compute_instance" "gsuite_exporter_vm" {
 
   metadata_startup_script = "${data.template_file.gsuite_exporter.rendered}"
 
-  service_account {
-    email  = "${var.service_account}"
+  vm_service_account {
+    email  = "${var.vm_service_account}"
     scopes = ["cloud-platform"]
   }
 }
@@ -78,17 +78,17 @@ resource "google_compute_instance" "gsuite_exporter_vm" {
 resource "google_project_iam_member" "token_creator" {
   project = "${var.project_id}"
   role    = "roles/iam.serviceAccountTokenCreator"
-  member  = "serviceAccount:${var.service_account}"
+  member  = "serviceAccount:${var.vm_service_account}"
 }
 
 resource "google_project_iam_member" "log_writer" {
   project = "${var.project_id}"
   role    = "roles/logging.logWriter"
-  member  = "serviceAccount:${var.service_account}"
+  member  = "serviceAccount:${var.vm_service_account}"
 }
 
 resource "google_project_iam_member" "log_viewer" {
   project = "${var.project_id}"
   role    = "roles/logging.viewer"
-  member  = "serviceAccount:${var.service_account}"
+  member  = "serviceAccount:${var.vm_service_account}"
 }

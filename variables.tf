@@ -34,7 +34,7 @@ variable frequency {
   default     = "*/10 * * * *"
 }
 
-variable service_account {
+variable vm_service_account {
   description = "The service account for exporting GSuite data. Needs domain-wide delegation and correct access scopes."
 }
 

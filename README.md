@@ -15,7 +15,7 @@ module "gsuite-export" {
   version = "~> 0.1.0"
 
   admin_user          = "superadmin@domain.com
-  service_account     = "svc@domain.com"
+  vm_service_account     = "svc@domain.com"
   project_id          = "my-project"
   api                 = "reports_v1"
   applications        = "login drive"

@@ -48,7 +48,7 @@ provider "google" {
 
 module "gsuite-export" {
   source            = "../../"
-  service_account   = "$SERVICE_ACCOUNT"
+  vm_service_account   = "$vm_service_account"
   api               = "reports_v1"
   applications      = "login drive token"
   gsuite_admin_user = "$ADMIN_USER"

@@ -4,7 +4,7 @@ provider "google" {
 
 module "gsuite-export" {
   source          = "../../"
-  service_account = "${var.service_account}"
+  vm_service_account = "${var.vm_service_account}"
   api             = "${var.api}"
   applications    = "${var.applications}"
   admin_user      = "${var.admin_user}"
