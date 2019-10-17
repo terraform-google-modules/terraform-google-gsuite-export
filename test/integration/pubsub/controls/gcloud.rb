@@ -51,19 +51,19 @@ control "pubsub sink" do
       )
     end
 
-    it "does contain the writerIdentity of #{writer_identity}" do
+    it "does contain the correct writerIdentity" do
       expect(sink).to include(
         writerIdentity: writer_identity
       )
     end
 
-    it "does contain the destination of #{destination_uri}" do
+    it "does contain the correct destination" do
       expect(sink).to include(
         destination: destination_uri
       )
     end
 
-    it "does contain the filter of #{filter}" do
+    it "does contain the correct filter" do
       expect(sink).to include(
         filter: filter
       )

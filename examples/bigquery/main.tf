@@ -30,6 +30,7 @@ module "gsuite-export" {
 
 module "gsuite-log-export" {
   source                 = "terraform-google-modules/log-export/google"
+  version                = "~> 3.0.0"
   destination_uri        = module.bigquery.destination_uri
   filter                 = module.gsuite-export.filter
   log_sink_name          = var.export_name
@@ -40,6 +41,7 @@ module "gsuite-log-export" {
 
 module "bigquery" {
   source                   = "terraform-google-modules/log-export/google//modules/bigquery"
+  version                  = "~> 3.0.0"
   project_id               = var.bigquery.project
   dataset_name             = var.bigquery.name
   log_sink_writer_identity = module.gsuite-log-export.writer_identity
