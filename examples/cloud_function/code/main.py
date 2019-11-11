@@ -8,11 +8,11 @@ def run (data, context):
     name = base64.b64decode(data['data']).decode('utf-8')
 
     # Load Data in JSON
-    json_string = json.loads(name)
+    dictionary = json.loads(name)
     
     # Parse JSON to Set Variables
-    project_id = json_string['PROJECT_ID']  
-    gsuite_admin_user = json_string['GSUITE_ADMIN_USER']
+    project_id = dictionary['PROJECT_ID']  
+    gsuite_admin_user = dictionary['GSUITE_ADMIN_USER']
 
     # Run Log Sync
     sync_all(

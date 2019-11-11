@@ -16,7 +16,7 @@ variable "gsuite_exporter_service_account" {
 
 variable "region" {
   description = "The Region to deploy the cloudfunction.  Currently this is only available in us-central-1"
-  default     = "us-central1"
+  default     = "us-east1"
 }
 
 variable "name" {
@@ -31,7 +31,7 @@ variable "cs_schedule" {
 
 variable "enabled_services" {
   description = "The Google Services required to be enabled on the project to deploy and run the cloudfunction"
-  type = list(string)
+  type        = list(string)
   default = [
     "storage-component.googleapis.com",
     "cloudfunctions.googleapis.com",
@@ -39,10 +39,15 @@ variable "enabled_services" {
     "pubsub.googleapis.com",
     "iam.googleapis.com",
     "admin.googleapis.com"
-  ]  
+  ]
 }
 
 variable "enable_app_engine" {
   description = "Boolean Variable to create App Engine App.  This is required for cloudscheduler.  If an App Engine App already exists in your project, set to false.  Otherwise set to true"
-  default  = true
+  default     = true
+}
+
+variable "gsuite_exporter_version" {
+  description = "The version of the gsuite exporter pypi project"
+  default = "0.0.3"
 }

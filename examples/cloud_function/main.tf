@@ -1,0 +1,69 @@
+provider "google-beta" {
+  project = var.project_id
+  region  = var.region
+  version = "~> 2.0"
+}
+
+provider "archive" {
+  version = "1.2"
+}
+
+# Template for requirements.txt file
+data "template_file" "requirements_txt_tpl" {
+  template = file("${path.module}/requirements.tpl")
+  vars = {
+    version = var.gsuite_exporter_version
+  }
+}
+
+// Create requirements.txt file from template
+resource "local_file" "requirements_txt" {
+  content  = "${data.template_file.requirements_txt_tpl.rendered}"
+  filename = "${path.module}/code/requirements.txt"
+}
+
+// Create Zip File of Code
+data "archive_file" "function" {
+  depends_on  = ["local_file.requirements_txt"]
+  type        = "zip"
+  output_path = "${path.module}/code.zip"
+  source_dir  = "${path.module}/code"
+}
+
+// Enable required services for the Project
+resource "google_project_service" "required-project-services" {
+  depends_on         = ["local_file.requirements_txt"]
+  count              = length(var.enabled_services)
+  project            = var.project_id
+  service            = element(var.enabled_services, count.index)
+  disable_on_destroy = false
+}
+
+// Cloud Scheduler Requires App Engine Application to be deployed in Project. See https://cloud.google.com/scheduler/docs/
+resource "google_app_engine_application" "app" {
+  count       = var.enable_app_engine ? 1 : 0
+  project     = var.project_id
+  location_id = "us-central"
+}
+
+// Create the Pub/Sub, CFN, and Scheduler using Module
+module "pubsub_scheduled_example" {
+  source                         = "github.com/terraform-google-modules/terraform-google-scheduled-function"
+  project_id                     = google_project_service.required-project-services.0.project
+  job_name                       = "${var.name}-gsuite-audit-log-scheduler"
+  job_schedule                   = var.cs_schedule
+  job_description                = "Scheduler for Gsuite Exporter Cloudfunction"
+  time_zone                      = "America/Denver"
+  function_entry_point           = "run"
+  function_source_directory      = "${path.module}/code"
+  function_name                  = "${var.name}-gsuite-exporter"
+  function_timeout_s             = 60
+  function_available_memory_mb   = 128
+  region                         = var.region
+  topic_name                     = "gsuite-admin-logs-topic-trigger"
+  function_runtime               = "python37"
+  function_description           = "Cloudfunction which pulls Gsuite Logs into Stackdriver"
+  bucket_name                    = "${var.name}-gsuite-exporter"
+  function_service_account_email = var.gsuite_exporter_service_account
+  message_data                   = base64encode("{\"PROJECT_ID\":\"${var.project_id}\",\"GSUITE_ADMIN_USER\":\"${var.gsuite_admin_user}\"}")
+}

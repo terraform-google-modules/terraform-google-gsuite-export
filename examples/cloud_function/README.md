@@ -14,18 +14,7 @@ For the GSuite Exporter to work, the following APIs must be enabled in the proje
 
 ## Prerequisites 
 
-The following GSuite Admin APIs are currently supported:
-
-- `reports_v1` - [Reports API](https://developers.google.com/admin-sdk/reports/v1/get-start/getting-started)
-    - `admin` - [Admin activity reports](https://developers.google.com/admin-sdk/reports/v1/guides/manage-audit-admin.html)
-    - `drive` - [Google Drive activity reports](https://developers.google.com/admin-sdk/reports/v1/guides/manage-audit-drive.html)
-    - `login` - [Login activity reports](https://developers.google.com/admin-sdk/reports/v1/guides/manage-audit-login.html)
-    - `mobile` - [Mobile activity reports](https://developers.google.com/admin-sdk/reports/v1/guides/manage-audit-mobile.html)
-    - `token` - [Authorization Token activity reports](https://developers.google.com/admin-sdk/reports/v1/guides/manage-audit-tokens.html)
-
-
-The following destinations are currently supported:
-- [Stackdriver Logging](https://cloud.google.com/logging/docs/)
+See the Pypi project [documentation](https://pypi.org/project/gsuite-exporter/) for supported APIS and destinations 
 
 ### Service account
 We need two Terraform service accounts for this module:
@@ -57,8 +46,8 @@ The **CloudFunction service account** passed to this module must have :
 The usage of the module within your own main.tf file is as follows:
 
 ```hcl
-    module "aggregated-export-to-pubsub" {
-      source                          = ./path-to-your-source
+    module "gsuite-exporter" {
+      source                          = github.com/terraform-google-modules/terraform-google-gsuite-export
       region                          = "us-central1"
       project_id                      = "example-project"
       name                            = "demo-cf-export"
@@ -74,8 +63,8 @@ The usage of the module within your own main.tf file is as follows:
 |------|-------------|:----:|:-----:|:-----:|
 | gsuite_admin_user | The email of a gsuite admin user | string | - | yes |
 | project_id |The ID of the project where the pub/sub topic will be installed  | string | - | yes |
-| region | The location of resources | string | `us-central1` | no |
 | gsuite_exporter_service-account| The email address of the service account which has been added to the gsuite admin consle and has [GSuite domain-wide delegation](https://developers.google.com/admin-sdk/reports/v1/guides/delegation)  | string | - | yes |
+| region | The location of resources | string | `us-central1` | no |
 | name | Prefix for resource naming | string | `demo-cf-export` | no |
 | cs_schedule| The Schedule which to trigger the function | string | `*/10 * * * *` | no |
 | enabled_services  | The services required to be enabled | list | `see vars file` | no |
