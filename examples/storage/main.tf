@@ -20,7 +20,7 @@ provider "google" {
 
 locals {
   storage = {
-    name    = 'my-storage'
+    name    = "my-storage"
     project = var.project_id
   }
 }

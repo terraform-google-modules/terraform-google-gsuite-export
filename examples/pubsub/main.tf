@@ -20,7 +20,7 @@ provider "google" {
 
 locals {
   pubsub = {
-    name    = 'my-pubsub'
+    name    = "my-pubsub"
     project = var.project_id
   }
 }

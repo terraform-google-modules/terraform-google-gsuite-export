@@ -20,7 +20,7 @@ provider "google" {
 
 locals {
   bigquery = {
-    name    = 'my-bigquery'
+    name    = "my-bigquery"
     project = var.project_id
   }
 }
