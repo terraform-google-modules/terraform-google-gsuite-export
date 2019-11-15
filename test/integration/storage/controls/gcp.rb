@@ -1,4 +1,4 @@
-# Copyright 2018 Google LLC
+# Copyright 2019 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,10 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+bucket_name = attribute("storage")["name"]
+
 control "gcp" do
   title "GCP Resources"
 
-  describe google_storage_bucket(name: attribute("storage")["name"]) do
+  describe google_storage_bucket(name: bucket_name) do
     it { should exist }
   end
 end

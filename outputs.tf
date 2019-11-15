@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,12 +20,12 @@ output "filter" {
 }
 
 output "instance_name" {
-  value       = var.machine_name
+  value       = google_compute_instance.gsuite_exporter_vm.name
   description = "GSuite Exporter instance name"
 }
 
 output "instance_zone" {
-  value       = var.machine_zone
+  value       = google_compute_instance.gsuite_exporter_vm.zone
   description = "GSuite Exporter instance zone"
 }
 
@@ -35,6 +35,6 @@ output "instance_project" {
 }
 
 output "instance_ssh_command" {
-  value       = "gcloud beta compute ssh ${var.machine_name} --zone=${var.machine_zone} --project=${local.machine_project}"
+  value       = "gcloud beta compute ssh ${google_compute_instance.gsuite_exporter_vm.name} --zone=${google_compute_instance.gsuite_exporter_vm.zone} --project=${local.machine_project}"
   description = "GSuite Exporter instance SSH command"
 }

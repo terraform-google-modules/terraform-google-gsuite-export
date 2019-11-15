@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,11 +21,11 @@ provider "google" {
 module "gsuite-export" {
   source          = "../../"
   service_account = var.service_account
-  api             = var.api
-  applications    = var.applications
-  admin_user      = var.admin_user
+  api             = "reports_v1"
+  applications    = ["login", "drive", "token"]
+  admin_user      = "superadmin@domain.com"
   project_id      = var.project_id
-  machine_name    = var.machine_name
+  machine_name    = "gsuite-exporter-bq"
 }
 
 module "gsuite-log-export" {
@@ -33,7 +33,7 @@ module "gsuite-log-export" {
   version                = "~> 3.0.0"
   destination_uri        = module.bigquery.destination_uri
   filter                 = module.gsuite-export.filter
-  log_sink_name          = var.export_name
+  log_sink_name          = "gsuite_export_bq"
   parent_resource_id     = var.project_id
   parent_resource_type   = "project"
   unique_writer_identity = var.bigquery.project == var.project_id ? "false" : "true"

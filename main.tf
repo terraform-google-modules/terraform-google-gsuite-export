@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ data "external" "compute_filter" {
     "python",
     "${path.module}/scripts/get_logsink_filter.py",
     var.project_id,
-    var.applications
+    join(" ", var.applications)
   ]
 }
 
@@ -37,7 +37,7 @@ data "template_file" "gsuite_exporter" {
   vars = {
     admin_user              = var.admin_user
     api                     = var.api
-    applications            = var.applications
+    applications            = join(" ", var.applications)
     project_id              = var.project_id
     frequency               = var.frequency
     gsuite_exporter_version = var.gsuite_exporter_version

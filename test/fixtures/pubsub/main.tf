@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,12 +16,7 @@
 
 module "example" {
   source          = "../../../examples/pubsub"
-  admin_user      = var.admin_user
-  api             = var.api
-  applications    = var.applications
   service_account = var.service_account
   project_id      = var.project_id
-  machine_name    = var.machine_name_pubsub
-  export_name     = var.export_name_pubsub
   pubsub          = var.pubsub
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,32 +14,12 @@
  * limitations under the License.
  */
 
-variable "admin_user" {
-  description = "The GSuite Admin user to impersonate"
-}
-
-variable "api" {
-  description = "The Admin SDK API to sync data from"
-}
-
-variable "applications" {
-  description = "The Admin SDK applications to sync data from (space-separated)"
-}
-
 variable "service_account" {
   description = "The service account for exporting GSuite data. Needs domain-wide delegation and correct access scopes."
 }
 
 variable "project_id" {
   description = "The project to export GSuite data to."
-}
-
-variable "machine_name" {
-  description = "Compute Engine instance name"
-}
-
-variable "export_name" {
-  description = "PubSub log export name"
 }
 
 variable "pubsub" {

@@ -1,4 +1,4 @@
-# Copyright 2018 Google LLC
+# Copyright 2019 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,11 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-instance_name = attribute['gsuite-export']['instance_name']
-instance_zone = attribute['gsuite-export']['instance_name']
-instance_project = attribute['gsuite-export']['instance_name']
-instance_ssh_command = attribute['gsuite-export']['instance_name']
-bigquery_dataset_name = attribute['bigquery']['resource_name']
+instance_name = attribute('gsuite-export')['instance_name']
+instance_zone = attribute('gsuite-export')['instance_zone']
+instance_project = attribute('gsuite-export')['instance_project']
+bigquery_dataset_name = attribute('bigquery')['resource_name']
 
 control "gsuite-exporter" do
   title "GSuite exporter VM + BigQuery log export"

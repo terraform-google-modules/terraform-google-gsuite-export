@@ -6,19 +6,33 @@ GSuite Admin SDK data to **Stackdriver Logging** on a schedule.
 Additional information on which APIs are supported is documented in the
 [gsuite-exporter repository][gsuite-exporter-site].
 
+## Compatibility
+
+This module is meant for use with Terraform 0.12. If you haven't
+[upgraded](https://www.terraform.io/upgrade-guides/0-12.html) and
+need a Terraform 0.11.x-compatible version of this module, the
+last released version intended for Terraform 0.11.x is
+[1.0.0](https://registry.terraform.io/modules/terraform-google-modules/gsuite-export/google/0.1.0).
+
+## Upgrading
+
+The current version is 2.X. The following guides are available to assist with upgrades:
+
+- [1.X -> 2.0](./docs/upgrading_to_gsuite_export_v2.0.md)
+
 ## Usage
 You can go to the [examples](./examples) folder to see all the use cases, however the usage of the module could be like this in your own `main.tf` file:
 
 ```hcl
 module "gsuite-export" {
   source  = "terraform-google-modules/gsuite-export/google"
-  version = "~> 0.1.0"
+  version = "~> 0.2.0"
 
-  admin_user          = "superadmin@domain.com
+  admin_user          = "superadmin@domain.com"
   service_account     = "svc@domain.com"
   project_id          = "my-project"
   api                 = "reports_v1"
-  applications        = "login drive"
+  applications        = ["login", "drive"]
   frequency           = "*/10 * * * *"
 }
 ```
@@ -32,7 +46,7 @@ module "gsuite-export" {
 |------|-------------|:----:|:-----:|:-----:|
 | admin\_user | The GSuite Admin user to impersonate | string | n/a | yes |
 | api | The Admin SDK API to sync data from | string | `"reports_v1"` | no |
-| applications | The Admin SDK applications to sync data from (space-separated) | string | `"admin login drive mobile token"` | no |
+| applications | The Admin SDK applications to sync data from | list(string) | `<list>` | no |
 | export\_filter | The export filter to use in a log export (if any) | string | `""` | no |
 | frequency | The crontab entry that controls the sync frequency | string | `"*/10 * * * *"` | no |
 | gsuite\_exporter\_version | Version of the gsuite-exporter PyPi package | string | `"0.0.3"` | no |

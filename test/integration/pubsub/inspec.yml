@@ -3,38 +3,18 @@ name: bigquery
 depends:
   - name: inspec-gcp
     git: https://github.com/inspec/inspec-gcp.git
-    tag: v0.10.0
+    tag: v0.19.0
 
 attributes:
 
-  - name: admin_user
+  - name: gsuite-log-export
     required: true
-    type: string
+    type: hash
 
-  - name: api
+  - name: gsuite-export
     required: true
-    type: string
-
-  - name: applications
-    required: true
-    type: string
-
-  - name: service_account
-    required: true
-    type: string
-
-  - name: project_id
-    required: true
-    type: string
-
-  - name: machine_name
-    required: true
-    type: string
-
-  - name: export_name
-    required: true
-    type: string
+    type: hash
 
   - name: pubsub
     required: true
-    type: map
+    type: hash

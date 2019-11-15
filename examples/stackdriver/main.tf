@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,9 +21,9 @@ provider "google" {
 module "gsuite-export" {
   source          = "../../"
   service_account = var.service_account
-  api             = var.api
-  applications    = var.applications
-  admin_user      = var.admin_user
+  api             = "reports_v1"
+  applications    = ["login", "drive", "token"]
+  admin_user      = "superadmin@domain.com"
   project_id      = var.project_id
-  machine_name    = var.machine_name
+  machine_name    = "gsuite-exporter-simple"
 }
