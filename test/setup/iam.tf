@@ -16,7 +16,10 @@
 
 locals {
   int_required_roles = [
-    "roles/owner"
+    "roles/owner",
+    "roles/iam.serviceAccountTokenCreator",
+    "roles/logging.logWriter",
+    "roles/logging.viewer"
   ]
 }
 

@@ -21,11 +21,3 @@ variable "service_account" {
 variable "project_id" {
   description = "The project to export GSuite data to."
 }
-
-variable "pubsub" {
-  description = "PubSub log export configuration"
-  type = object({
-    project = string
-    name    = string
-  })
-}

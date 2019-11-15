@@ -18,6 +18,13 @@ provider "google" {
   version = "~> 2.15.0"
 }
 
+locals {
+  storage = {
+    name    = 'my-storage'
+    project = var.project_id
+  }
+}
+
 module "gsuite-export" {
   source          = "../../"
   service_account = var.service_account
@@ -36,13 +43,13 @@ module "gsuite-log-export" {
   log_sink_name          = "gsuite_export_storage"
   parent_resource_id     = var.project_id
   parent_resource_type   = "project"
-  unique_writer_identity = var.storage.project == var.project_id ? "false" : "true"
+  unique_writer_identity = local.storage.project == var.project_id ? "false" : "true"
 }
 
 module "storage" {
   source                   = "terraform-google-modules/log-export/google//modules/storage"
   version                  = "~> 3.0.0"
-  project_id               = var.storage.project
-  storage_bucket_name      = var.storage.name
+  project_id               = local.storage.project
+  storage_bucket_name      = local.storage.name
   log_sink_writer_identity = module.gsuite-log-export.writer_identity
 }

@@ -18,5 +18,4 @@ module "example" {
   source          = "../../../examples/pubsub"
   service_account = var.service_account
   project_id      = var.project_id
-  pubsub          = var.pubsub
 }

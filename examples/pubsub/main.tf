@@ -18,6 +18,13 @@ provider "google" {
   version = "~> 2.15.0"
 }
 
+locals {
+  pubsub = {
+    name    = 'my-pubsub'
+    project = var.project_id
+  }
+}
+
 module "gsuite-export" {
   source          = "../../"
   service_account = var.service_account
@@ -36,14 +43,14 @@ module "gsuite-log-export" {
   log_sink_name          = "gsuite_export_pubsub"
   parent_resource_id     = var.project_id
   parent_resource_type   = "project"
-  unique_writer_identity = var.pubsub.project == var.project_id ? "false" : "true"
+  unique_writer_identity = local.pubsub.project == var.project_id ? "false" : "true"
 }
 
 module "pubsub" {
   source                   = "terraform-google-modules/log-export/google//modules/pubsub"
   version                  = "~> 3.0.0"
-  project_id               = var.pubsub.project
-  topic_name               = var.pubsub.name
+  project_id               = local.pubsub.project
+  topic_name               = local.pubsub.name
   log_sink_writer_identity = module.gsuite-log-export.writer_identity
   create_subscriber        = "false"
 }

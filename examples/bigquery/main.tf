@@ -18,6 +18,13 @@ provider "google" {
   version = "~> 2.15.0"
 }
 
+locals {
+  bigquery = {
+    name    = 'my-bigquery'
+    project = var.project_id
+  }
+}
+
 module "gsuite-export" {
   source          = "../../"
   service_account = var.service_account
@@ -36,13 +43,13 @@ module "gsuite-log-export" {
   log_sink_name          = "gsuite_export_bq"
   parent_resource_id     = var.project_id
   parent_resource_type   = "project"
-  unique_writer_identity = var.bigquery.project == var.project_id ? "false" : "true"
+  unique_writer_identity = local.bigquery.project == var.project_id ? "false" : "true"
 }
 
 module "bigquery" {
   source                   = "terraform-google-modules/log-export/google//modules/bigquery"
   version                  = "~> 3.0.0"
-  project_id               = var.bigquery.project
-  dataset_name             = var.bigquery.name
+  project_id               = local.bigquery.project
+  dataset_name             = local.bigquery.name
   log_sink_writer_identity = module.gsuite-log-export.writer_identity
 }
