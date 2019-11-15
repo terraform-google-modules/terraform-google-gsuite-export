@@ -18,6 +18,10 @@ output "project_id" {
   value = module.project.project_id
 }
 
+output "service_account" {
+  value = google_service_account.int_test.id
+}
+
 output "sa_key" {
   value     = google_service_account_key.int_test.private_key
   sensitive = true
