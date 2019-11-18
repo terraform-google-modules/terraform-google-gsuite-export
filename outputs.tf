@@ -30,11 +30,6 @@ output "instance_zone" {
 }
 
 output "instance_project" {
-  value       = local.machine_project
+  value       = google_compute_instance.gsuite_exporter_vm.project
   description = "GSuite Exporter instance project"
-}
-
-output "instance_ssh_command" {
-  value       = "gcloud beta compute ssh ${google_compute_instance.gsuite_exporter_vm.name} --zone=${google_compute_instance.gsuite_exporter_vm.zone} --project=${local.machine_project}"
-  description = "GSuite Exporter instance SSH command"
 }
