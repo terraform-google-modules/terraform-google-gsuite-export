@@ -66,7 +66,6 @@ module "gsuite-export" {
 | filter | Log export filter for logs exported by GSuite-exporter |
 | instance\_name | GSuite Exporter instance name |
 | instance\_project | GSuite Exporter instance project |
-| instance\_ssh\_command | GSuite Exporter instance SSH command |
 | instance\_zone | GSuite Exporter instance zone |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
