@@ -30,6 +30,14 @@ resource "google_compute_network" "default" {
   project                 = var.project_id
 }
 
+resource "google_compute_subnetwork" "main" {
+  project       = var.project_id
+  region        = "us-central1"
+  name          = "example-subnetwork-${random_string.suffix.result}"
+  ip_cidr_range = "10.128.0.0/20"
+  network       = google_compute_network.default.self_link
+}
+
 module "gsuite-export" {
   source          = "../../"
   service_account = var.service_account
