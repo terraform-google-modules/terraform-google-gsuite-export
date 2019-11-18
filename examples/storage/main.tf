@@ -26,7 +26,7 @@ resource "random_string" "suffix" {
 
 locals {
   storage = {
-    name    = "my-storage-${random_string.suffix.result}"
+    name    = "my_storage_${random_string.suffix.result}"
     project = var.project_id
   }
 }

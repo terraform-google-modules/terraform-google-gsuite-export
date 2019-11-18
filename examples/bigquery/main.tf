@@ -26,7 +26,7 @@ resource "random_string" "suffix" {
 
 locals {
   bigquery = {
-    name    = "my-bigquery-${random_string.suffix.result}"
+    name    = "my_bigquery_${random_string.suffix.result}"
     project = var.project_id
   }
 }

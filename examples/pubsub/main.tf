@@ -26,7 +26,7 @@ resource "random_string" "suffix" {
 
 locals {
   pubsub = {
-    name    = "my-pubsub-${random_string.suffix.result}"
+    name    = "my_pubsub_${random_string.suffix.result}"
     project = var.project_id
   }
 }
