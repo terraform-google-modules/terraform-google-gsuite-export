@@ -24,18 +24,10 @@ resource "random_string" "suffix" {
   upper   = "false"
 }
 
-resource "google_compute_network" "default" {
-  name                    = "example-network-${random_string.suffix.result}"
-  auto_create_subnetworks = "false"
+resource "google_compute_network" "vpc_network" {
   project                 = var.project_id
-}
-
-resource "google_compute_subnetwork" "main" {
-  project       = var.project_id
-  region        = "us-central1"
-  name          = "example-subnetwork-${random_string.suffix.result}"
-  ip_cidr_range = "10.128.0.0/20"
-  network       = google_compute_network.default.self_link
+  name                    = "example-network-${random_string.suffix.result}"
+  auto_create_subnetworks = "true"
 }
 
 module "gsuite-export" {
@@ -46,5 +38,5 @@ module "gsuite-export" {
   admin_user      = "superadmin@domain.com"
   project_id      = var.project_id
   machine_name    = "gsuite-exporter-simple"
-  machine_network = google_compute_network.default.self_link
+  machine_network = google_compute_network.vpc_network.self_link
 }
