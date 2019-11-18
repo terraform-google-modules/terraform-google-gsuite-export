@@ -32,5 +32,6 @@ module "project" {
     "bigquery-json.googleapis.com",
     "pubsub.googleapis.com",
     "storage-component.googleapis.com",
+    "storage-api.googleapis.com",
   ]
 }
