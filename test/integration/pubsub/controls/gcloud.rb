@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-project_id = attribute('pubsub')['project']
+project_id = attribute('pubsub')['project_id']
 sink_name = attribute('gsuite-log-export')['log_sink_resource_name']
 writer_identity = attribute('gsuite-log-export')['writer_identity']
 destination_uri = attribute('gsuite-log-export')['destination_uri']

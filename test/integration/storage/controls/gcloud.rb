@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-project_id = attribute("project_id")
+project_id = attribute('storage')['project_id']
 
 control "gcloud" do
   title "gcloud"

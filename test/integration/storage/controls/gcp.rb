@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-bucket_name = attribute("storage")["name"]
+bucket_name = attribute('storage')['name']
 
 control "gcp" do
   title "GCP Resources"
