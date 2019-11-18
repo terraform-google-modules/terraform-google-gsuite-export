@@ -18,6 +18,11 @@ provider "google" {
   version = "~> 2.15.0"
 }
 
+resource "google_compute_network" "default" {
+  name                    = "example-network"
+  auto_create_subnetworks = "false"
+}
+
 module "gsuite-export" {
   source          = "../../"
   service_account = var.service_account
@@ -26,4 +31,5 @@ module "gsuite-export" {
   admin_user      = "superadmin@domain.com"
   project_id      = var.project_id
   machine_name    = "gsuite-exporter-simple"
+  machine_network = google_compute_network.default.self_link
 }

@@ -19,7 +19,7 @@ output "project_id" {
 }
 
 output "service_account" {
-  value = google_service_account.int_test.id
+  value = google_service_account.int_test.email
 }
 
 output "sa_key" {
