@@ -18,9 +18,16 @@ provider "google" {
   version = "~> 2.15.0"
 }
 
+resource "random_string" "suffix" {
+  length  = 4
+  special = "false"
+  upper   = "false"
+}
+
 resource "google_compute_network" "default" {
-  name                    = "example-network"
+  name                    = "example-network-${random_string.suffix.result}"
   auto_create_subnetworks = "false"
+  project                 = var.project_id
 }
 
 module "gsuite-export" {
