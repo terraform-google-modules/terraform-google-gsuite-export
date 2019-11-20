@@ -33,6 +33,7 @@ module "project" {
     "pubsub.googleapis.com",
     "storage-component.googleapis.com",
     "storage-api.googleapis.com",
-    "admin.googleapis.com"
+    "admin.googleapis.com",
+    "iam.googleapis.com"
   ]
 }
