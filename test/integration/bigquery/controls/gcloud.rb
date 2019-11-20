@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-project_id = attribute('bigquery')['project_id']
+project_id = attribute('bigquery')['project']
 sink_name = attribute('gsuite-log-export')['log_sink_resource_name']
 writer_identity = attribute('gsuite-log-export')['writer_identity']
-destination_uri = attribute('gsuite-log-export')['destination_uri']
+destination_uri = attribute('bigquery')['destination_uri']
 filter = attribute('gsuite-log-export')['filter']
 
-control "bigquery sink" do
+control "gcloud" do
   title "Log exports - project level bigquery destination - gcloud commands"
 
   describe command("gcloud logging sinks list --project #{project_id} --filter=\"name:#{sink_name}\" --format json") do

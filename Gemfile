@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     https://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -12,12 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-bucket_name = attribute('storage')['resource_name']
-
-control "gcp" do
-  title "GCP Resources"
-
-  describe google_storage_bucket(name: bucket_name) do
-    it { should exist }
-  end
+source 'https://rubygems.org/' do
+  gem 'kitchen-terraform'
 end

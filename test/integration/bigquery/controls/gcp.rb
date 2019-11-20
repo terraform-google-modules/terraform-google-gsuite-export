@@ -17,7 +17,7 @@ instance_zone = attribute('gsuite-export')['instance_zone']
 instance_project = attribute('gsuite-export')['instance_project']
 bigquery_dataset_name = attribute('bigquery')['resource_name']
 
-control "gsuite-exporter" do
+control "gcp" do
   title "GSuite exporter VM + BigQuery log export"
 
   describe google_compute_instance(
@@ -28,7 +28,10 @@ control "gsuite-exporter" do
     it { should exist }
   end
 
-  describe google_bigquery_dataset(name: bigquery_dataset_name) do
+  describe google_bigquery_dataset(
+    project: instance_project,
+    name: bigquery_dataset_name
+   ) do
     it { should exist }
   end
 end

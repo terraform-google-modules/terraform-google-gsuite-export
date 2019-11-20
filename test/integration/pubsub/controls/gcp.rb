@@ -17,7 +17,7 @@ instance_zone = attribute('gsuite-export')['instance_zone']
 instance_project = attribute('gsuite-export')['instance_project']
 pubsub_topic_name = attribute('pubsub')['resource_name']
 
-control "gsuite-exporter" do
+control "gcp" do
   title "GSuite exporter VM + PubSub log export"
 
   describe google_compute_instance(
@@ -28,7 +28,10 @@ control "gsuite-exporter" do
     it { should exist }
   end
 
-  describe google_pubsub_topic(name: pubsub_topic_name) do
+  describe google_pubsub_topic(
+    project: instance_project,
+    name: pubsub_topic_name
+  ) do
     it { should exist }
   end
 end

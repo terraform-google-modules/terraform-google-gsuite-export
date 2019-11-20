@@ -44,7 +44,6 @@ module "gsuite-export" {
   applications    = ["login", "drive", "token"]
   admin_user      = "superadmin@domain.com"
   project_id      = var.project_id
-  machine_project = var.project_id
   machine_name    = "gsuite-exporter-storage"
   machine_network = google_compute_network.vpc_network.self_link
 }

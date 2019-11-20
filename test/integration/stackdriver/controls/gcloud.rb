@@ -14,7 +14,7 @@
 
 project_id = attribute('gsuite-export')['instance_project']
 
-control "stackdriver" do
+control "gcloud" do
   title "GSuite export - bare (without log export)"
 
   describe command("gcloud --project=#{project_id} services list --enabled") do

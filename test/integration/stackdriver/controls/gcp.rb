@@ -16,7 +16,7 @@ instance_name = attribute('gsuite-export')['instance_name']
 instance_zone = attribute('gsuite-export')['instance_zone']
 instance_project = attribute('gsuite-export')['instance_project']
 
-control "gsuite-exporter" do
+control "gcp" do
   title "GSuite exporter VM"
 
   describe google_compute_instance(

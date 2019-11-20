@@ -7,6 +7,9 @@
 # Python
 *.pyc
 
+# JetBrains - IntelliJ, Webstorm etc.
+.idea/
+
 # Emacs save files
 *~
 \#*\#
