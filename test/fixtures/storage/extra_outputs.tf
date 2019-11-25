@@ -15,9 +15,11 @@
  */
 
 output "storage" {
-  value = module.example.storage
+  description = "Log Export: Storage destination submodule"
+  value       = module.example.storage
 }
 
 output "gsuite_log_export" {
-  value = module.example.gsuite_log_export
+  description = "Log Export Module"
+  value       = module.example.gsuite_log_export
 }

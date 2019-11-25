@@ -15,9 +15,11 @@
  */
 
 output "pubsub" {
-  value = module.example.pubsub
+  description = "Log Export: PubSub destination submodule"
+  value       = module.example.pubsub
 }
 
 output "gsuite_log_export" {
-  value = module.example.gsuite_log_export
+  description = "Log Export Module"
+  value       = module.example.gsuite_log_export
 }

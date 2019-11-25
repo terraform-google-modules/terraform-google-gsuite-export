@@ -19,7 +19,7 @@ module "project" {
   version = "~> 3.0"
 
   name              = "ci-gsuite-export"
-  random_project_id = "true"
+  random_project_id = true
   org_id            = var.org_id
   folder_id         = var.folder_id
   billing_account   = var.billing_account

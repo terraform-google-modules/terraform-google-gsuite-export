@@ -15,9 +15,11 @@
  */
 
 output "bigquery" {
-  value = module.example.bigquery
+  description = "Log Export: BigQuery destination submodule"
+  value       = module.example.bigquery
 }
 
 output "gsuite_log_export" {
-  value = module.example.gsuite_log_export
+  description = "Log Export Module"
+  value       = module.example.gsuite_log_export
 }

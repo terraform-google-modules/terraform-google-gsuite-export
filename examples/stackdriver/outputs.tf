@@ -15,5 +15,6 @@
  */
 
 output "gsuite_export" {
-  value = module.gsuite_export
+  description = "GSuite Export Module"
+  value       = module.gsuite_export
 }

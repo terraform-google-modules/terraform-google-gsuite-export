@@ -29,7 +29,7 @@ module "example-vpc-module" {
   version                 = "~> 1.5.0"
   project_id              = var.project_id
   network_name            = "vpc-network-${random_string.suffix.result}"
-  auto_create_subnetworks = "true"
+  auto_create_subnetworks = true
   subnets                 = []
 }
 
