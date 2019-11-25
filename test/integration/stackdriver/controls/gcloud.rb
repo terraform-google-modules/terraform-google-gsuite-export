@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-project_id = attribute('gsuite-export')['instance_project']
+project_id = attribute('gsuite_export')['instance_project']
 
 control "gcloud" do
   title "GSuite export - bare (without log export)"

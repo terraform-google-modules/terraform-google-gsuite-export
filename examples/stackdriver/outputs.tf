@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 
-output "gsuite-export" {
-  value = module.gsuite-export
+output "gsuite_export" {
+  value = module.gsuite_export
 }

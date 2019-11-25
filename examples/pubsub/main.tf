@@ -19,25 +19,12 @@ provider "google" {
 }
 
 resource "random_string" "suffix" {
-  length  = 4
-  special = "false"
-  upper   = "false"
+  length = 4
+  special = false
+  upper = false
 }
 
-locals {
-  pubsub = {
-    name    = "my_pubsub_${random_string.suffix.result}"
-    project = var.project_id
-  }
-}
-
-resource "google_compute_network" "vpc_network" {
-  project                 = var.project_id
-  name                    = "example-network-${random_string.suffix.result}"
-  auto_create_subnetworks = "true"
-}
-
-module "gsuite-export" {
+module "gsuite_export" {
   source          = "../../"
   service_account = var.service_account
   api             = "reports_v1"
@@ -45,25 +32,24 @@ module "gsuite-export" {
   admin_user      = "superadmin@domain.com"
   project_id      = var.project_id
   machine_name    = "gsuite-exporter-pubsub"
-  machine_network = google_compute_network.vpc_network.self_link
 }
 
-module "gsuite-log-export" {
+module "gsuite_log_export" {
   source                 = "terraform-google-modules/log-export/google"
   version                = "~> 3.0.0"
   destination_uri        = module.pubsub.destination_uri
-  filter                 = module.gsuite-export.filter
+  filter                 = module.gsuite_export.filter
   log_sink_name          = "gsuite_export_pubsub"
   parent_resource_id     = var.project_id
   parent_resource_type   = "project"
-  unique_writer_identity = local.pubsub.project == var.project_id ? "false" : "true"
+  unique_writer_identity = false
 }
 
 module "pubsub" {
   source                   = "terraform-google-modules/log-export/google//modules/pubsub"
   version                  = "~> 3.0.0"
-  project_id               = local.pubsub.project
-  topic_name               = local.pubsub.name
-  log_sink_writer_identity = module.gsuite-log-export.writer_identity
-  create_subscriber        = "false"
+  project_id               = var.project_id
+  topic_name               = "my_pubsub_${random_string.suffix.result}"
+  log_sink_writer_identity = module.gsuite_log_export.writer_identity
+  create_subscriber        = false
 }

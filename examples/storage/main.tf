@@ -20,15 +20,8 @@ provider "google" {
 
 resource "random_string" "suffix" {
   length  = 4
-  special = "false"
-  upper   = "false"
-}
-
-locals {
-  storage = {
-    name    = "my_storage_${random_string.suffix.result}"
-    project = var.project_id
-  }
+  special = false
+  upper   = false
 }
 
 resource "google_compute_network" "vpc_network" {
@@ -37,7 +30,7 @@ resource "google_compute_network" "vpc_network" {
   auto_create_subnetworks = "true"
 }
 
-module "gsuite-export" {
+module "gsuite_export" {
   source          = "../../"
   service_account = var.service_account
   api             = "reports_v1"
@@ -48,21 +41,21 @@ module "gsuite-export" {
   machine_network = google_compute_network.vpc_network.self_link
 }
 
-module "gsuite-log-export" {
+module "gsuite_log_export" {
   source                 = "terraform-google-modules/log-export/google"
   version                = "~> 3.0.0"
   destination_uri        = module.storage.destination_uri
-  filter                 = module.gsuite-export.filter
+  filter                 = module.gsuite_export.filter
   log_sink_name          = "gsuite_export_storage"
   parent_resource_id     = var.project_id
   parent_resource_type   = "project"
-  unique_writer_identity = local.storage.project == var.project_id ? "false" : "true"
+  unique_writer_identity = false
 }
 
 module "storage" {
   source                   = "terraform-google-modules/log-export/google//modules/storage"
   version                  = "~> 3.0.0"
-  project_id               = local.storage.project
-  storage_bucket_name      = local.storage.name
-  log_sink_writer_identity = module.gsuite-log-export.writer_identity
+  project_id               = var.project_id
+  storage_bucket_name      = "my_storage_${random_string.suffix.result}"
+  log_sink_writer_identity = module.gsuite_log_export.writer_identity
 }

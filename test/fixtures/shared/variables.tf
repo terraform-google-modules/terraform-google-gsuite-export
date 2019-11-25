@@ -16,8 +16,12 @@
 
 variable "service_account" {
   description = "The service account for exporting GSuite data. Needs domain-wide delegation and correct access scopes."
+  type        = string
+  default     = "flask-app-service@flask-app-254610.iam.gserviceaccount.com"
 }
 
 variable "project_id" {
   description = "The project to export GSuite data to."
+  type        = string
+  default     = "flask-app-254610"
 }

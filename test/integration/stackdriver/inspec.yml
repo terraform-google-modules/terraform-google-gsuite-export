@@ -22,6 +22,6 @@ depends:
 
 attributes:
 
-  - name: gsuite-export
+  - name: gsuite_export
     required: true
     type: hash

@@ -18,6 +18,6 @@ output "pubsub" {
   value = module.example.pubsub
 }
 
-output "gsuite-log-export" {
-  value = module.example.gsuite-log-export
+output "gsuite_log_export" {
+  value = module.example.gsuite_log_export
 }

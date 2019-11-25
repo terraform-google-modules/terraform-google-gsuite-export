@@ -22,11 +22,11 @@ depends:
 
 attributes:
 
-  - name: gsuite-log-export
+  - name: gsuite_log_export
     required: true
     type: hash
 
-  - name: gsuite-export
+  - name: gsuite_export
     required: true
     type: hash
 

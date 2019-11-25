@@ -20,8 +20,8 @@ provider "google" {
 
 resource "random_string" "suffix" {
   length  = 4
-  special = "false"
-  upper   = "false"
+  special = false
+  upper   = false
 }
 
 resource "google_compute_network" "vpc_network" {
@@ -30,7 +30,7 @@ resource "google_compute_network" "vpc_network" {
   auto_create_subnetworks = "true"
 }
 
-module "gsuite-export" {
+module "gsuite_export" {
   source          = "../../"
   service_account = var.service_account
   api             = "reports_v1"
