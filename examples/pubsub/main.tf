@@ -19,9 +19,18 @@ provider "google" {
 }
 
 resource "random_string" "suffix" {
-  length = 4
+  length  = 4
   special = false
-  upper = false
+  upper   = false
+}
+
+module "example-vpc-module" {
+  source                  = "terraform-google-modules/network/google"
+  version                 = "~> 1.5.0"
+  project_id              = var.project_id
+  network_name            = "vpc-network-${random_string.suffix.result}"
+  auto_create_subnetworks = "true"
+  subnets                 = []
 }
 
 module "gsuite_export" {
@@ -32,6 +41,7 @@ module "gsuite_export" {
   admin_user      = "superadmin@domain.com"
   project_id      = var.project_id
   machine_name    = "gsuite-exporter-pubsub"
+  machine_network = module.example-vpc-module.network_name
 }
 
 module "gsuite_log_export" {

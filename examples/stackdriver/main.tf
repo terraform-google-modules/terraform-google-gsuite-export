@@ -24,10 +24,13 @@ resource "random_string" "suffix" {
   upper   = false
 }
 
-resource "google_compute_network" "vpc_network" {
-  project                 = var.project_id
-  name                    = "example-network-${random_string.suffix.result}"
+module "example-vpc-module" {
+  source                  = "terraform-google-modules/network/google"
+  version                 = "~> 1.5.0"
+  project_id              = var.project_id
+  network_name            = "vpc-network-${random_string.suffix.result}"
   auto_create_subnetworks = "true"
+  subnets                 = []
 }
 
 module "gsuite_export" {
@@ -38,5 +41,5 @@ module "gsuite_export" {
   admin_user      = "superadmin@domain.com"
   project_id      = var.project_id
   machine_name    = "gsuite-exporter-simple"
-  machine_network = google_compute_network.vpc_network.self_link
+  machine_network = module.example-vpc-module.network_name
 }
