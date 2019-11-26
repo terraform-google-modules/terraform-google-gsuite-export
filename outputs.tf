@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,9 +15,21 @@
  */
 
 output "filter" {
-  value = "${local.export_filter}"
+  value       = local.export_filter
+  description = "Log export filter for logs exported by GSuite-exporter"
 }
 
-output "instance_id" {
-  value = "${google_compute_instance.gsuite_exporter_vm.instance_id}"
+output "instance_name" {
+  value       = google_compute_instance.gsuite_exporter_vm.name
+  description = "GSuite Exporter instance name"
+}
+
+output "instance_zone" {
+  value       = google_compute_instance.gsuite_exporter_vm.zone
+  description = "GSuite Exporter instance zone"
+}
+
+output "instance_project" {
+  value       = google_compute_instance.gsuite_exporter_vm.project
+  description = "GSuite Exporter instance project"
 }

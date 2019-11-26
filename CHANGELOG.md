@@ -10,6 +10,19 @@ Extending the adopted spec, each change should have a link to its corresponding 
 
 ## [Unreleased]
 
+### Changed
+- Support for Terraform 0.12
+
+### Added
+- Convert string variable `applications` to a list of strings
+- Add outputs `instance_name`, `instance_zone`
+- Add Kitchen-terraform tests
+- Update examples to fit terraform-google-log-export reformat
+
+### Removed
+- Removed bats tests (obsolete)
+- Removed output `instance_id`
+
 ## [0.1.0] - 2019-03-29
 
 ### Added
