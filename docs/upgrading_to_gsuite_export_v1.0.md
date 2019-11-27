@@ -1,12 +1,12 @@
-# Upgrading to GSuite Export v2.0 (from v1.X)
+# Upgrading to GSuite Export v1.0.0 (from v0.1.0)
 
-The v2.0 release of GSuite Export is a backwards incompatible release. The type of `applications` argument was changed from string to list of strings
+The v1.0.0 release of GSuite Export is a backwards incompatible release. The type of `applications` argument was changed from string to list of strings
 
 ## Migration Instructions
 
 ### Application Argument Change
 
-Version 1.X of GSuite Export used the optional `applications` string variable to set the Admin SDK applications to sync data from
+Version 0.1.0 of GSuite Export used the optional `applications` string variable to set the Admin SDK applications to sync data from
 
 ```hcl
 module "gsuite-export" {
@@ -22,12 +22,12 @@ module "gsuite-export" {
 }
 ```
 
-Version 2.X of GSuite Export uses the updated list of strings `applications` parameter:
+Version 1.0.0 of GSuite Export uses the updated list of strings `applications` parameter:
 
 ```hcl
 module "gsuite-export" {
   source  = "terraform-google-modules/gsuite-export/google"
-  version = "~> 0.2.0"
+  version = "~> 1.0.0"
 
   admin_user          = "superadmin@domain.com"
   service_account     = "svc@domain.com"
