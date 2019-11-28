@@ -16,9 +16,9 @@ last released version intended for Terraform 0.11.x is
 
 ## Upgrading
 
-The current version is 2.X. The following guides are available to assist with upgrades:
+The current version is 1.X. The following guides are available to assist with upgrades:
 
-- [1.X -> 2.0](./docs/upgrading_to_gsuite_export_v1.0.md)
+- [0.X -> 1.0](./docs/upgrading_to_gsuite_export_v1.0.md)
 
 ## Usage
 You can go to the [examples](./examples) folder to see all the use cases, however the usage of the module could be like this in your own `main.tf` file:
@@ -26,7 +26,7 @@ You can go to the [examples](./examples) folder to see all the use cases, howeve
 ```hcl
 module "gsuite-export" {
   source  = "terraform-google-modules/gsuite-export/google"
-  version = "~> 0.2.0"
+  version = "~> 1.0.0"
 
   admin_user          = "superadmin@domain.com"
   service_account     = "svc@domain.com"
