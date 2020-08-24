@@ -52,7 +52,8 @@ module "gsuite-export" {
 | gsuite\_exporter\_version | Version of the gsuite-exporter PyPi package | string | `"0.0.3"` | no |
 | machine\_image | The instance image | string | `"debian-cloud/debian-9"` | no |
 | machine\_name | The instance name | string | `"gsuite-exporter"` | no |
-| machine\_network | The instance network | string | `"default"` | no |
+| machine\_subnetwork | The instance subnetwork | string | `"default"` | no |
+| machine\_region | The instance region | string | `"default"` | no |
 | machine\_project | The instance project id. Defaults to `project_id` | string | `""` | no |
 | machine\_type | The instance type | string | `"f1-micro"` | no |
 | machine\_zone | The instance zone | string | `"us-central1-a"` | no |

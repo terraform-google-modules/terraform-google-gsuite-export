@@ -95,8 +95,14 @@ variable "machine_image" {
   default     = "debian-cloud/debian-9"
 }
 
-variable "machine_network" {
-  description = "The instance network"
+variable "machine_subnetwork" {
+  description = "The instance subnetwork"
+  type        = string
+  default     = "default"
+}
+
+variable "machine_region" {
+  description = "The instance region"
   type        = string
   default     = "default"
 }
