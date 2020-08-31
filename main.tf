@@ -62,6 +62,7 @@ resource "google_compute_instance" "gsuite_exporter_vm" {
 
   network_interface {
     network = var.machine_network
+    subnetwork = var.machine_subnetwork
     access_config {}
   }
 
