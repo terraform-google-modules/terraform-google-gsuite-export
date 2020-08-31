@@ -100,3 +100,9 @@ variable "machine_network" {
   type        = string
   default     = "default"
 }
+   
+variable "machine_subnetwork" {
+  description = "The instance subnetwork"
+  type        = string
+  default     = "default"
+}
