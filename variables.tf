@@ -71,6 +71,12 @@ variable "machine_zone" {
   default     = "us-central1-a"
 }
 
+variable "machine_region" {
+  description = "The region for the machine instance to be deployed in"
+  type        = string
+  default     = "us-central1"
+}
+
 variable "machine_network" {
   description = "The instance network"
   type        = string
