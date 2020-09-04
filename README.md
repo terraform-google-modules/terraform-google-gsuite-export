@@ -53,9 +53,11 @@ module "gsuite-export" {
 | machine\_image | The instance image | string | `"debian-cloud/debian-9"` | no |
 | machine\_name | The instance name | string | `"gsuite-exporter"` | no |
 | machine\_network | The instance network | string | `"default"` | no |
+| machine\_network_project | The instance network project (shared vpc) | string | `""` | no |
 | machine\_project | The instance project id. Defaults to `project_id` | string | `""` | no |
 | machine\_type | The instance type | string | `"f1-micro"` | no |
 | machine\_zone | The instance zone | string | `"us-central1-a"` | no |
+| machine\_region | The instance region | string | `"us-central1"` | no |
 | project\_id | The project to export GSuite data to. | string | n/a | yes |
 | service\_account | The service account for exporting GSuite data. Needs domain-wide delegation and correct access scopes. | string | n/a | yes |
 
