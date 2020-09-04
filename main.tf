@@ -17,6 +17,7 @@
 locals {
   export_filter   = var.export_filter != "" ? var.export_filter : data.external.compute_filter.result.filter
   machine_project = var.machine_project != "" ? var.machine_project : var.project_id
+  machine_network_project = var.machine_network_project == "" ? var.machine_project : var.machine_network_project
 }
 
 #------#
@@ -61,7 +62,7 @@ resource "google_compute_instance" "gsuite_exporter_vm" {
   }
 
   network_interface {
-    network = var.machine_network
+    subnetwork = "projects/${local.machine_network_project}/regions/${var.machine_region}/subnetworks/${var.machine_subnetwork}"
     access_config {}
   }
 

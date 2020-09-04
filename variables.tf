@@ -71,6 +71,18 @@ variable "machine_zone" {
   default     = "us-central1-a"
 }
 
+variable "machine_network" {
+  description = "The instance network"
+  type        = string
+  default     = "default"
+}
+
+variable "machine_network_project" {
+  description = "The instance network project"
+  type        = string
+  default     = ""
+}
+
 variable "machine_project" {
   description = "The instance project id. Defaults to `project_id`"
   type        = string
@@ -95,8 +107,6 @@ variable "machine_image" {
   default     = "debian-cloud/debian-9"
 }
 
-variable "machine_network" {
-  description = "The instance network"
-  type        = string
-  default     = "default"
-}
+
+
+
