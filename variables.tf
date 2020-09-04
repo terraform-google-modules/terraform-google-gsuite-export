@@ -77,8 +77,14 @@ variable "machine_region" {
   default     = "us-central1"
 }
 
+variable "machine_subnetwork" {
+  description = "The instance subnetwork name (subnet name)"
+  type        = string
+  default     = "default"
+}
+
 variable "machine_network" {
-  description = "The instance network"
+  description = "The instance network (vpc name)"
   type        = string
   default     = "default"
 }
@@ -112,7 +118,6 @@ variable "machine_image" {
   type        = string
   default     = "debian-cloud/debian-9"
 }
-
 
 
 
