@@ -104,5 +104,5 @@ variable "machine_subnetwork" {
 variable "machine_region" {
   description = "The instance region"
   type        = string
-  default     = "default"
+  default     = "us-west1"
 }
