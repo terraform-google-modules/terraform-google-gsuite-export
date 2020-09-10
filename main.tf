@@ -15,8 +15,8 @@
  */
 
 locals {
-  export_filter   = var.export_filter != "" ? var.export_filter : data.external.compute_filter.result.filter
-  machine_project = var.machine_project != "" ? var.machine_project : var.project_id
+  export_filter           = var.export_filter != "" ? var.export_filter : data.external.compute_filter.result.filter
+  machine_project         = var.machine_project != "" ? var.machine_project : var.project_id
   machine_network_project = var.machine_network_project == "" ? var.machine_project : var.machine_network_project
 }
 
