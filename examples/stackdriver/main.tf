@@ -34,12 +34,12 @@ module "example-vpc-module" {
 }
 
 module "gsuite_export" {
-  source          = "../../"
-  service_account = var.service_account
-  api             = "reports_v1"
-  applications    = ["login", "drive", "token"]
-  admin_user      = "superadmin@domain.com"
-  project_id      = var.project_id
-  machine_name    = "gsuite-exporter-simple"
+  source             = "../../"
+  service_account    = var.service_account
+  api                = "reports_v1"
+  applications       = ["login", "drive", "token"]
+  admin_user         = "superadmin@domain.com"
+  project_id         = var.project_id
+  machine_name       = "gsuite-exporter-simple"
   machine_subnetwork = module.example-vpc-module.network_name
 }

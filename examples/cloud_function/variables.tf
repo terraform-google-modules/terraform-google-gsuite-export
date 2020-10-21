@@ -49,5 +49,5 @@ variable "enable_app_engine" {
 
 variable "gsuite_exporter_version" {
   description = "The version of the gsuite exporter pypi project"
-  default = "0.0.3"
+  default     = "0.0.3"
 }
