@@ -41,5 +41,5 @@ module "gsuite_export" {
   admin_user      = "superadmin@domain.com"
   project_id      = var.project_id
   machine_name    = "gsuite-exporter-simple"
-  machine_network = module.example-vpc-module.network_name
+  machine_subnetwork = module.example-vpc-module.network_name
 }

@@ -83,12 +83,6 @@ variable "machine_subnetwork" {
   default     = "default"
 }
 
-variable "machine_network" {
-  description = "The instance network (vpc name)"
-  type        = string
-  default     = "default"
-}
-
 variable "machine_network_project" {
   description = "The instance network project"
   type        = string
