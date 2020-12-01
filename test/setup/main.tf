@@ -15,9 +15,8 @@
  */
 
 module "project" {
-  source  = "terraform-google-modules/project-factory/google"
-  version = "~> 8.0"
-
+  source            = "terraform-google-modules/project-factory/google"
+  version           = "~> 8.0"
   name              = "ci-gsuite-export"
   random_project_id = true
   org_id            = var.org_id
