@@ -29,7 +29,7 @@ module "project" {
     "cloudresourcemanager.googleapis.com",
     "logging.googleapis.com",
     "monitoring.googleapis.com",
-    "bigquery-json.googleapis.com",
+    "bigquery.googleapis.com",
     "pubsub.googleapis.com",
     "storage-component.googleapis.com",
     "storage-api.googleapis.com",
