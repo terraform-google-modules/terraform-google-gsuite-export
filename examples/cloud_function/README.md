@@ -12,9 +12,9 @@ For the GSuite Exporter to work, the following APIs must be enabled in the proje
 - App Engine API: `appengine.googleapis.com`
 
 
-## Prerequisites 
+## Prerequisites
 
-See the Pypi project [documentation](https://pypi.org/project/gsuite-exporter/) for supported APIS and destinations 
+See the Pypi project [documentation](https://pypi.org/project/gsuite-exporter/) for supported APIS and destinations.
 
 ### Service account
 We need two Terraform service accounts for this module:
