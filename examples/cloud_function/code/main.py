@@ -9,9 +9,9 @@ def run (data, context):
 
     # Load Data in JSON
     dictionary = json.loads(name)
-    
+
     # Parse JSON to Set Variables
-    project_id = dictionary['PROJECT_ID']  
+    project_id = dictionary['PROJECT_ID']
     gsuite_admin_user = dictionary['GSUITE_ADMIN_USER']
 
     # Run Log Sync

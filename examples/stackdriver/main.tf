@@ -15,7 +15,7 @@
  */
 
 provider "google" {
-  version = "~> 2.15.0"
+  version = "~> 3.53"
 }
 
 resource "random_string" "suffix" {
@@ -26,7 +26,7 @@ resource "random_string" "suffix" {
 
 module "example-vpc-module" {
   source                  = "terraform-google-modules/network/google"
-  version                 = "~> 1.5.0"
+  version                 = "~> 3.0"
   project_id              = var.project_id
   network_name            = "vpc-network-${random_string.suffix.result}"
   auto_create_subnetworks = true

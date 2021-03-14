@@ -15,7 +15,7 @@
  */
 
 provider "google" {
-  version = "~> 2.15.0"
+  version = "~> 3.53"
 }
 
 resource "random_string" "suffix" {
@@ -26,7 +26,7 @@ resource "random_string" "suffix" {
 
 module "example-vpc-module" {
   source                  = "terraform-google-modules/network/google"
-  version                 = "~> 1.5.0"
+  version                 = "~> 3.0"
   project_id              = var.project_id
   network_name            = "vpc-network-${random_string.suffix.result}"
   auto_create_subnetworks = true
@@ -46,7 +46,7 @@ module "gsuite_export" {
 
 module "gsuite_log_export" {
   source                 = "terraform-google-modules/log-export/google"
-  version                = "~> 3.0.0"
+  version                = "~> 5.0"
   destination_uri        = module.storage.destination_uri
   filter                 = module.gsuite_export.filter
   log_sink_name          = "gsuite_export_storage"
@@ -57,7 +57,7 @@ module "gsuite_log_export" {
 
 module "storage" {
   source                   = "terraform-google-modules/log-export/google//modules/storage"
-  version                  = "~> 3.0.0"
+  version                  = "~> 5.0"
   project_id               = var.project_id
   storage_bucket_name      = "my_storage_${random_string.suffix.result}"
   log_sink_writer_identity = module.gsuite_log_export.writer_identity
