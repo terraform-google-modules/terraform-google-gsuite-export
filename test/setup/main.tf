@@ -16,7 +16,7 @@
 
 module "project" {
   source  = "terraform-google-modules/project-factory/google"
-  version = "~> 10.0"
+  version = "~> 10.2"
 
   name              = "ci-gsuite-export"
   random_project_id = true
@@ -29,10 +29,10 @@ module "project" {
     "cloudresourcemanager.googleapis.com",
     "logging.googleapis.com",
     "monitoring.googleapis.com",
-    "bigquery-json.googleapis.com",
+    "bigquery.googleapis.com",
     "pubsub.googleapis.com",
     "storage-component.googleapis.com",
-    "storage-api.googleapis.com",
+    "storage.googleapis.com",
     "admin.googleapis.com",
     "iam.googleapis.com"
   ]

@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-instance_name = attribute('gsuite_export')['instance_name']
-instance_zone = attribute('gsuite_export')['instance_zone']
-instance_project = attribute('gsuite_export')['instance_project']
-pubsub_topic_name = attribute('pubsub')['resource_name']
+instance_name = attribute('gsuite_export')[:instance_name]
+instance_zone = attribute('gsuite_export')[:instance_zone]
+instance_project = attribute('gsuite_export')[:instance_project]
+pubsub_topic_name = attribute('pubsub')[:resource_name]
 
 control "gcp" do
   title "GSuite exporter VM + PubSub log export"

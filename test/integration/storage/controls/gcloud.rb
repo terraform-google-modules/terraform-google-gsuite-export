@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-project_id = attribute('storage')['project']
+project_id = attribute('storage')[:project]
 
 control "gcloud" do
   title "gcloud"
@@ -20,7 +20,7 @@ control "gcloud" do
   describe command("gcloud --project=#{project_id} services list --enabled") do
     its(:exit_status) { should eq 0 }
     its(:stderr) { should eq "" }
-    its(:stdout) { should match "bigquery-json.googleapis.com" }
+    its(:stdout) { should match "bigquery.googleapis.com" }
     its(:stdout) { should match "storage.googleapis.com" }
     its(:stdout) { should match "pubsub.googleapis.com" }
   end
