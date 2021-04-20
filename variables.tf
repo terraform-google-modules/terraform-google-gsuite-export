@@ -59,7 +59,7 @@ variable "export_filter" {
 variable "gsuite_exporter_version" {
   description = "Version of the gsuite-exporter PyPi package"
   type        = string
-  default     = "0.0.3"
+  default     = "0.0.4"
 }
 
 #---------------------------#
