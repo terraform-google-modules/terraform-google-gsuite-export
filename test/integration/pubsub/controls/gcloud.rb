@@ -12,11 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-project_id = attribute('pubsub')['project']
-sink_name = attribute('gsuite_log_export')['log_sink_resource_name']
-writer_identity = attribute('gsuite_log_export')['writer_identity']
-destination_uri = attribute('pubsub')['destination_uri']
-filter = attribute('gsuite_log_export')['filter']
+project_id = attribute('pubsub')[:project]
+sink_name = attribute('gsuite_log_export')[:log_sink_resource_name]
+writer_identity = attribute('gsuite_log_export')[:writer_identity]
+destination_uri = attribute('pubsub')[:destination_uri]
+filter = attribute('gsuite_log_export')[:filter]
 
 control "gcloud" do
   title "Log exports - project level pubsub destination - gcloud commands"

@@ -7,57 +7,10 @@ Additional information on which APIs are supported is documented in the
 [gsuite-exporter repository][gsuite-exporter-site].
 
 ## Compatibility
-
-This module is meant for use with Terraform 0.12. If you haven't
-[upgraded](https://www.terraform.io/upgrade-guides/0-12.html) and
-need a Terraform 0.11.x-compatible version of this module, the
-last released version intended for Terraform 0.11.x is
-[0.1.0](https://registry.terraform.io/modules/terraform-google-modules/gsuite-export/google/0.1.0).
-
-## Upgrading
-
-The current version is 1.X. The following guides are available to assist with upgrades:
-
-- [0.X -> 1.0](./docs/upgrading_to_gsuite_export_v1.0.md)
-
-## Usage
-You can go to the [examples](./examples) folder to see all the use cases, however the usage of the module could be like this in your own `main.tf` file:
-
-```hcl
-module "gsuite-export" {
-  source  = "terraform-google-modules/gsuite-export/google"
-  version = "~> 1.0.0"
-
-  admin_user          = "superadmin@domain.com"
-  service_account     = "svc@domain.com"
-  project_id          = "my-project"
-  api                 = "reports_v1"
-  applications        = ["login", "drive"]
-  frequency           = "*/10 * * * *"
-}
-```
-
-***Warning: Setting the `frequency` to a time inferior to 4 mn might cause the loss of records due to a limitation in the GSuite Admin API.***
-
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| admin\_user | The GSuite Admin user to impersonate | string | n/a | yes |
-| api | The Admin SDK API to sync data from | string | `"reports_v1"` | no |
-| applications | The Admin SDK applications to sync data from | list(string) | `<list>` | no |
-| export\_filter | The export filter to use in a log export (if any) | string | `""` | no |
-| frequency | The crontab entry that controls the sync frequency | string | `"*/10 * * * *"` | no |
-| gsuite\_exporter\_version | Version of the gsuite-exporter PyPi package | string | `"0.0.3"` | no |
-| machine\_image | The instance image | string | `"debian-cloud/debian-9"` | no |
-| machine\_name | The instance name | string | `"gsuite-exporter"` | no |
-| machine\_network | The instance network | string | `"default"` | no |
-| machine\_project | The instance project id. Defaults to `project_id` | string | `""` | no |
-| machine\_type | The instance type | string | `"f1-micro"` | no |
-| machine\_zone | The instance zone | string | `"us-central1-a"` | no |
-| project\_id | The project to export GSuite data to. | string | n/a | yes |
-| service\_account | The service account for exporting GSuite data. Needs domain-wide delegation and correct access scopes. | string | n/a | yes |
+This module is meant for use with Terraform 0.13. If you haven't
+[upgraded](https://www.terraform.io/upgrade-guides/0-13.html) and need a Terraform
+0.12.x-compatible version of this module, the last released version
+intended for Terraform 0.12.x is [v1.0.0](https://registry.terraform.io/modules/terraform-google-modules/-gsuite-export/google/v1.0.0).
 
 ## Outputs
 
@@ -72,7 +25,7 @@ module "gsuite-export" {
 
 ## Requirements
 ### Terraform plugins
-- [Terraform](https://www.terraform.io/downloads.html) 0.12.x
+- [Terraform](https://www.terraform.io/downloads.html) >= 0.13.0
 - [terraform-provider-google](https://github.com/terraform-providers/terraform-provider-google) plugin v1.8.0
 
 ### APIs
