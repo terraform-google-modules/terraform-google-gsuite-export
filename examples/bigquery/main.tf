@@ -46,7 +46,7 @@ module "gsuite_export" {
 
 module "gsuite_log_export" {
   source                 = "terraform-google-modules/log-export/google"
-  version                = "~> 5.0"
+  version                = "~> 7.0"
   destination_uri        = module.bigquery.destination_uri
   filter                 = module.gsuite_export.filter
   log_sink_name          = "gsuite_export_bq"
@@ -57,7 +57,7 @@ module "gsuite_log_export" {
 
 module "bigquery" {
   source                   = "terraform-google-modules/log-export/google//modules/bigquery"
-  version                  = "~> 5.0"
+  version                  = "~> 7.0"
   project_id               = var.project_id
   dataset_name             = "my_bigquery_${random_string.suffix.result}"
   log_sink_writer_identity = module.gsuite_log_export.writer_identity
