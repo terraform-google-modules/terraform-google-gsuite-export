@@ -15,5 +15,24 @@
  */
 
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.13"
+  required_providers {
+    archive = {
+      source  = "hashicorp/archive"
+      version = "1.2"
+    }
+    google = {
+      source = "hashicorp/google"
+    }
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = "~> 4.0"
+    }
+    local = {
+      source = "hashicorp/local"
+    }
+    template = {
+      source = "hashicorp/template"
+    }
+  }
 }

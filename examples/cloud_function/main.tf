@@ -17,11 +17,6 @@
 provider "google-beta" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.53"
-}
-
-provider "archive" {
-  version = "1.2"
 }
 
 # Template for requirements.txt file
@@ -48,7 +43,7 @@ data "archive_file" "function" {
 
 // Enable required services for the Project
 resource "google_project_service" "required-project-services" {
-  depends_on         = ["local_file.requirements_txt"]
+  depends_on         = [local_file.requirements_txt]
   count              = length(var.enabled_services)
   project            = var.project_id
   service            = element(var.enabled_services, count.index)
