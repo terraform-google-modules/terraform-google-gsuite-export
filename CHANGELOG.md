@@ -8,6 +8,23 @@ and this project adheres to
 
 Extending the adopted spec, each change should have a link to its corresponding pull request appended.
 
+## [2.0.0](https://github.com/terraform-google-modules/terraform-google-gsuite-export/compare/v1.0.0...v2.0.0) (2022-05-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* add Terraform 0.13 constraint and module attribution (#21)
+
+### Features
+
+* add Terraform 0.13 constraint and module attribution ([#21](https://github.com/terraform-google-modules/terraform-google-gsuite-export/issues/21)) ([0a94a2d](https://github.com/terraform-google-modules/terraform-google-gsuite-export/commit/0a94a2ddb4b320bb3530227e2842716ce0d4520c))
+* update TPG version constraints to allow 4.0 ([#25](https://github.com/terraform-google-modules/terraform-google-gsuite-export/issues/25)) ([0fda657](https://github.com/terraform-google-modules/terraform-google-gsuite-export/commit/0fda657fb79f300e6782a332a76e6fda6048c652))
+
+
+### Bug Fixes
+
+* update gsuite-exporter to version 0.0.4 ([527a241](https://github.com/terraform-google-modules/terraform-google-gsuite-export/commit/527a24113c38c771eccaaa5afbd08c54d740fe52))
+
 ## [Unreleased]
 
 ## [1.0.0] - 2019-11-26
