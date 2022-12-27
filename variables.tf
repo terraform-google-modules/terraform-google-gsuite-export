@@ -92,7 +92,7 @@ variable "machine_name" {
 variable "machine_image" {
   description = "The instance image"
   type        = string
-  default     = "debian-cloud/debian-9"
+  default     = "debian-cloud/debian-11"
 }
 
 variable "machine_network" {
