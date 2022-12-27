@@ -15,6 +15,7 @@
      ],
      "stabilityDays":0
   },
+  "separateMajorMinor":false,
   "packageRules": [
     {
       "matchPaths": ["examples/**", "test/**", ".github/**"],
@@ -25,19 +26,13 @@
       "extends": [":semanticCommitTypeAll(fix)"]
     },
     {
-      "matchDepTypes": ["required_provider"],
-      "separateMajorMinor":false
-    },
-    {
       "matchDepTypes": ["module"],
-      "groupName": "TF modules",
-      "separateMajorMinor":false
+      "groupName": "TF modules"
     },
     {
       "matchDepTypes": ["require"],
       "groupName": "GO modules",
-      "postUpdateOptions": ["gomodTidy"],
-      "separateMajorMinor":false
+      "postUpdateOptions": ["gomodTidy"]
     },
     {
       "matchPackageNames": ["go"],
@@ -46,8 +41,7 @@
     },
     {
       "matchPackageNames": ["google", "google-beta"],
-      "groupName": "terraform googles",
-      "separateMajorMinor": false
+      "groupName": "terraform googles"
     }
   ]
 }
