@@ -21,12 +21,17 @@
       "extends": [":semanticCommitTypeAll(chore)"]
     },
     {
+      "matchPaths": ["*", "modules/**"],
+      "extends": [":semanticCommitTypeAll(fix)"]
+    },
+    {
+      "matchDepTypes": ["required_provider"],
+      "separateMajorMinor":false
+    },
+    {
       "matchDepTypes": ["module"],
       "groupName": "TF modules",
-      "separateMajorMinor":false,
-      "major": {
-        "semanticCommitType": "feat!"
-      }
+      "separateMajorMinor":false
     },
     {
       "matchDepTypes": ["require"],
