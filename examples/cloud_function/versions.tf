@@ -19,7 +19,7 @@ terraform {
   required_providers {
     archive = {
       source  = "hashicorp/archive"
-      version = "1.2"
+      version = "2.2"
     }
     google = {
       source = "hashicorp/google"
