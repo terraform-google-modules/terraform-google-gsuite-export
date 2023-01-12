@@ -8,6 +8,13 @@ and this project adheres to
 
 Extending the adopted spec, each change should have a link to its corresponding pull request appended.
 
+## [2.0.1](https://github.com/terraform-google-modules/terraform-google-gsuite-export/compare/v2.0.0...v2.0.1) (2022-12-30)
+
+
+### Bug Fixes
+
+* update machine_image to debian-11 ([#38](https://github.com/terraform-google-modules/terraform-google-gsuite-export/issues/38)) ([0336295](https://github.com/terraform-google-modules/terraform-google-gsuite-export/commit/033629556814cfe06185ea501aacfec878471138))
+
 ## [2.0.0](https://github.com/terraform-google-modules/terraform-google-gsuite-export/compare/v1.0.0...v2.0.0) (2022-05-09)
 
 
