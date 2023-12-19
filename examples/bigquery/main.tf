@@ -30,7 +30,9 @@ module "example-vpc-module" {
 }
 
 module "gsuite_export" {
-  source          = "../../"
+  source  = "terraform-google-modules/gsuite-export/google"
+  version = "~> 2.0"
+
   service_account = var.service_account
   api             = "reports_v1"
   applications    = ["login", "drive", "token"]
