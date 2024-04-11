@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Google LLC
+ * Copyright 2021-2024 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,14 +33,6 @@ resource "local_file" "requirements_txt" {
   filename = "${path.module}/code/requirements.txt"
 }
 
-// Create Zip File of Code
-data "archive_file" "function" {
-  depends_on  = ["local_file.requirements_txt"]
-  type        = "zip"
-  output_path = "${path.module}/code.zip"
-  source_dir  = "${path.module}/code"
-}
-
 // Enable required services for the Project
 resource "google_project_service" "required-project-services" {
   depends_on         = [local_file.requirements_txt]
@@ -59,8 +51,9 @@ resource "google_app_engine_application" "app" {
 
 // Create the Pub/Sub, CFN, and Scheduler using Module
 module "pubsub_scheduled_example" {
-  source                         = "github.com/terraform-google-modules/terraform-google-scheduled-function"
-  project_id                     = google_project_service.required-project-services.0.project
+  source                         = "terraform-google-modules/scheduled-function/google"
+  version                        = "~> 4.0"
+  project_id                     = google_project_service.required-project-services[0].project
   job_name                       = "${var.name}-gsuite-audit-log-scheduler"
   job_schedule                   = var.cs_schedule
   job_description                = "Scheduler for Gsuite Exporter Cloudfunction"
