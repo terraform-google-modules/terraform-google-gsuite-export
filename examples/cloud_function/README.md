@@ -108,3 +108,24 @@ This solution uses "serverless" architecture to pull GSuite Audit Logs from the 
     - logname: /logs/token
     - logname: /logs/drive
     - logname: /logs/mobile
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| cs\_schedule | The Schedule which to trigger the function | `string` | `"*/10 * * * *"` | no |
+| enable\_app\_engine | Boolean Variable to create App Engine App.  This is required for cloudscheduler.  If an App Engine App already exists in your project, set to false.  Otherwise set to true | `bool` | `true` | no |
+| enabled\_services | The Google Services required to be enabled on the project to deploy and run the cloudfunction | `list(string)` | <pre>[<br>  "storage-component.googleapis.com",<br>  "cloudfunctions.googleapis.com",<br>  "cloudscheduler.googleapis.com",<br>  "pubsub.googleapis.com",<br>  "iam.googleapis.com",<br>  "admin.googleapis.com"<br>]</pre> | no |
+| gsuite\_admin\_user | The GSuite Admin user to impersonate | `any` | n/a | yes |
+| gsuite\_exporter\_service\_account | The service account for exporting GSuite data. Needs domain-wide delegation and correct access scopes. | `any` | n/a | yes |
+| gsuite\_exporter\_version | The version of the gsuite exporter pypi project | `string` | `"0.0.3"` | no |
+| name | The Prefix for resource names | `string` | `"demo-cf-export"` | no |
+| project\_id | The Project ID to provision resources into | `any` | n/a | yes |
+| region | The Region to deploy the cloudfunction.  Currently this is only available in us-central-1 | `string` | `"us-east1"` | no |
+
+## Outputs
+
+No outputs.
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
