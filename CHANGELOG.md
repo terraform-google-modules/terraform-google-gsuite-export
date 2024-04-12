@@ -8,6 +8,14 @@ and this project adheres to
 
 Extending the adopted spec, each change should have a link to its corresponding pull request appended.
 
+## [2.0.2](https://github.com/terraform-google-modules/terraform-google-gsuite-export/compare/v2.0.1...v2.0.2) (2024-04-12)
+
+
+### Bug Fixes
+
+* updates for tflint ([#55](https://github.com/terraform-google-modules/terraform-google-gsuite-export/issues/55)) ([b043cae](https://github.com/terraform-google-modules/terraform-google-gsuite-export/commit/b043cae103b142ad10458f727378f7ace26a4319))
+* upgraded versions.tf to include minor bumps from tpg v5 ([#46](https://github.com/terraform-google-modules/terraform-google-gsuite-export/issues/46)) ([d6394a8](https://github.com/terraform-google-modules/terraform-google-gsuite-export/commit/d6394a8225ba1c429138618f67f9fefc8ffbc355))
+
 ## [2.0.1](https://github.com/terraform-google-modules/terraform-google-gsuite-export/compare/v2.0.0...v2.0.1) (2022-12-30)
 
 
