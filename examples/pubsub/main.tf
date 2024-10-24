@@ -44,7 +44,7 @@ module "gsuite_export" {
 
 module "gsuite_log_export" {
   source                 = "terraform-google-modules/log-export/google"
-  version                = "~> 8.0"
+  version                = "~> 10.0"
   destination_uri        = module.pubsub.destination_uri
   filter                 = module.gsuite_export.filter
   log_sink_name          = "gsuite_export_pubsub"
@@ -55,7 +55,7 @@ module "gsuite_log_export" {
 
 module "pubsub" {
   source                   = "terraform-google-modules/log-export/google//modules/pubsub"
-  version                  = "~> 8.0"
+  version                  = "~> 10.0"
   project_id               = var.project_id
   topic_name               = "my_pubsub_${random_string.suffix.result}"
   log_sink_writer_identity = module.gsuite_log_export.writer_identity
