@@ -8,6 +8,13 @@ and this project adheres to
 
 Extending the adopted spec, each change should have a link to its corresponding pull request appended.
 
+## [2.1.0](https://github.com/terraform-google-modules/terraform-google-gsuite-export/compare/v2.0.2...v2.1.0) (2024-10-30)
+
+
+### Features
+
+* **deps:** Update Terraform google to v6 ([#61](https://github.com/terraform-google-modules/terraform-google-gsuite-export/issues/61)) ([66a5fdc](https://github.com/terraform-google-modules/terraform-google-gsuite-export/commit/66a5fdcf06d9dc4dfb9f85690ad8f4b803a0d33a))
+
 ## [2.0.2](https://github.com/terraform-google-modules/terraform-google-gsuite-export/compare/v2.0.1...v2.0.2) (2024-04-12)
 
 
