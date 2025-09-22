@@ -52,7 +52,7 @@ resource "google_app_engine_application" "app" {
 // Create the Pub/Sub, CFN, and Scheduler using Module
 module "pubsub_scheduled_example" {
   source                         = "terraform-google-modules/scheduled-function/google"
-  version                        = "~> 6.0"
+  version                        = "~> 7.0"
   project_id                     = google_project_service.required-project-services[0].project
   job_name                       = "${var.name}-gsuite-audit-log-scheduler"
   job_schedule                   = var.cs_schedule
