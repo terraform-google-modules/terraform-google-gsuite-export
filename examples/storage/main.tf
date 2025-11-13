@@ -44,7 +44,7 @@ module "gsuite_export" {
 
 module "gsuite_log_export" {
   source                 = "terraform-google-modules/log-export/google"
-  version                = "~> 10.0"
+  version                = "~> 11.0"
   destination_uri        = module.storage.destination_uri
   filter                 = module.gsuite_export.filter
   log_sink_name          = "gsuite_export_storage"
@@ -55,7 +55,7 @@ module "gsuite_log_export" {
 
 module "storage" {
   source                   = "terraform-google-modules/log-export/google//modules/storage"
-  version                  = "~> 10.0"
+  version                  = "~> 11.0"
   project_id               = var.project_id
   storage_bucket_name      = "my_storage_${random_string.suffix.result}"
   log_sink_writer_identity = module.gsuite_log_export.writer_identity
